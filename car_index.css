@@ -1,0 +1,15 @@
+header{
+    background-image: url("https://pbs.twimg.com/profile_banners/944201399201538049/1660623840/600x200");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 600px;
+    min-height: 200px;
+}
+a{
+    /* overflow-wrap: break-word; */
+    word-break:keep-all;
+}
+.header_txt{
+    background-color: black;
+    color: white;
+}
