@@ -10,6 +10,7 @@ header{
     background-size: cover;
     min-width: 600px;
     min-height: 200px;
+    height: 30vh;
 }
 a{
     /* overflow-wrap: break-word; */
@@ -24,7 +25,13 @@ footer{
     background-color: black;
     color: white;
 }
-#header{
+#footer{
     position: relative;
-    height: 100vh;
+    height: 5vh;
+}
+#main{
+    height: 70vh;
+}
+#main_text{
+    height:65vh;
 }
