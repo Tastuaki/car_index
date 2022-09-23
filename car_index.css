@@ -1,5 +1,5 @@
 html{
-    height: 100%;
+    position: relative;
 }
 body{
     height: 100vh;
@@ -17,6 +17,8 @@ a{
     word-break:keep-all;
 }
 footer{
+    width: 100%;
+    background-color: gray;
     position: absolute;
     min-height: 30px;
     bottom: 5vh;
@@ -25,13 +27,6 @@ footer{
     background-color: black;
     color: white;
 }
-#footer{
-    position: relative;
-    height: 10vh;
-}
 #main{
-    height: 70vh;
-}
-#main_text{
-    height:60vh;
+    height: auto;
 }
