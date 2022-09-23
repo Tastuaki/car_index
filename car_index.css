@@ -18,13 +18,16 @@ a{
 footer{
     position: absolute;
     min-height: 30px;
-    bottom: 30vh;
+    bottom: 1vh;
 }
 .header_txt{
     background-color: black;
     color: white;
 }
 #main{
+    height: 100vh;
+}
+#header{
     position: relative;
     height: 100vh;
 }
