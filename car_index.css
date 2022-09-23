@@ -3,6 +3,7 @@ html{
 }
 body{
     height: 100vh;
+    position: relative;
 }
 header{
     background-image: url("https://muuseo-jp.s3-ap-northeast-1.amazonaws.com/uploads/2022/09/22/08/53/06/501c5665-5cd7-4265-b0b3-be4719ed18ae/9f5856dbbd255493a8558682ec26c92a-converted.jpg");
@@ -10,6 +11,7 @@ header{
     background-size: cover;
     min-width: 600px;
     min-height: 200px;
+    position: absolute;
 }
 a{
     /* overflow-wrap: break-word; */
@@ -24,5 +26,5 @@ footer{
     color: white;
 }
 #main{
-    position: relative;
+    position: absolute;
 }
