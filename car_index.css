@@ -19,7 +19,7 @@ a{
 footer{
     position: absolute;
     min-height: 30px;
-    bottom: 1vh;
+    bottom: 5vh;
 }
 .header_txt{
     background-color: black;
@@ -27,11 +27,11 @@ footer{
 }
 #footer{
     position: relative;
-    height: 5vh;
+    height: 10vh;
 }
 #main{
     height: 70vh;
 }
 #main_text{
-    height:65vh;
+    height:60vh;
 }
