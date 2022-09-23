@@ -1,5 +1,12 @@
+html{
+    height: 100%;
+}
+body{
+    position: relative;
+    height: 100vh;
+}
 header{
-    background-image: url("https://pbs.twimg.com/profile_banners/944201399201538049/1660623840/600x200");
+    background-image: url("https://muuseo-jp.s3-ap-northeast-1.amazonaws.com/uploads/2022/09/22/08/53/06/501c5665-5cd7-4265-b0b3-be4719ed18ae/9f5856dbbd255493a8558682ec26c92a-converted.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     min-width: 600px;
@@ -8,6 +15,10 @@ header{
 a{
     /* overflow-wrap: break-word; */
     word-break:keep-all;
+}
+footer{
+    position: absolute;
+    bottom: 30px;
 }
 .header_txt{
     background-color: black;
