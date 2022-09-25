@@ -30,6 +30,8 @@ footer{
 
 .footer_link{
     color:white;
+    text-decoration: none;
+    font-weight:  bold;
 }
 .footer_link:visited{
     color:white;
