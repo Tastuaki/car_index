@@ -12,8 +12,7 @@ header{
     min-height: 200px;
     height: 30vh;
 }
-a{
-    /* overflow-wrap: break-word; */
+p{
     word-break:keep-all;
 }
 a:visited {
