@@ -20,7 +20,7 @@ a:visited {
     color: blue;
 }
 footer{
-    width: 99%;
+    width: 100%;
     background-color: gray;
     position: sticky;
     min-height: 30px;
