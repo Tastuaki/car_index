@@ -16,17 +16,29 @@ a{
     /* overflow-wrap: break-word; */
     word-break:keep-all;
 }
+a:visited {
+    color: blue;
+}
 footer{
     width: 99%;
     background-color: gray;
     position: sticky;
     min-height: 30px;
-    bottom: 5vh;
+    bottom: 0px;
+    color: white;
+}
+
+.footer_link{
+    color:white;
+}
+.footer_link:visited{
+    color:white;
 }
 .header_txt{
     background-color: black;
     color: white;
 }
+
 #main{
     height: auto;
 }
