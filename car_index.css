@@ -36,9 +36,9 @@ footer{
 .button_area{
     width: 100vh;
     display: flex;
+    justify-content: center;
 }
 .model_button{
-    justify-content: center; 
     outline:none;
     background-color: rgba(0, 0, 0, 0);
     font-size:20px;
