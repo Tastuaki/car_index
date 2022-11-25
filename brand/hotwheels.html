@@ -9,19 +9,21 @@
             <h1 class="header_txt" id="main_title">ミニカー発売記録</h1>
         </header>
         <script>
-            function ord_open(){
-                var ord_year = document.getElementById('ord');
-                ord_year.style.display="block";
+            function old_open(){
+                old_year = document.getElementById('old');
+                old_year.style.display="block";
+                old_button = document.getElementById('time_machine');
+                old_button.style.display="none";
             }
         </script>
         <div id="main">
             <h3 class="header_txt" id="model_brand">ホットウィール</h3>
             ホットウィールファンクラブの過去リンクです。<br>
             過去5年分のみ表示しています。それ以前は下の↓ボタンを押してください。<br>
-            <div class="button_area">
-                <button class="model_button" onclick="ord_open()">↓</button>
+            <div id="time_machine" class="button_area">
+                <button class="model_button" onclick="old_open()">↓</button>
             </div>
-            <div id = "ord" style="display:none;">
+            <div id = "old" style="display:none;">
                 基本的に開いたサイトの左側の一覧から探してください。
                 <div class="year">
                     2009<br>
