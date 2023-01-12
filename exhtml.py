@@ -18,16 +18,14 @@ except FileExistsError:
     pass
 finally:
         try:
-            # fname = "exchange.html"
-            # urllib.request.urlretrieve(burl,fname)
             all = urllib.request.urlopen(burl).readlines()
             for h in range(len(all)):
                 all[h] = all[h].decode("utf-8")
-            # with open("exchange.html",'r',encoding='utf-8') as base:
-                # all = base.readlines()
             for i in count():
                 if "article_title" in all[i]:
                     title = all[i+1][all[i+1].find(">")+1:all[i+1].rfind("<")]
+                    if "/" in title:
+                        title = title.replace("/","_")
                 elif "lab_article_body" in all[i]:
                     body_begin = i
                     for j in count(i):
@@ -51,11 +49,12 @@ finally:
                         bodyline = '<a class="car_link" href="'+url+'">'+bodyline+'</a><br>'
                     else:
                         bodyline = '<a class="car_link" href="'+url+'"></a><br>'
+                elif 
                 body.append(bodyline)
-            with open(title+".html",'w',encoding='utf-8') as ex:
+            with open(title+".html",'w+',encoding='utf-8') as ex:
                 ex.write('<!DOCTYPE html>\n<html lang="ja" id="main_html">\n    <head>\n        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">\n        <link rel="stylesheet" href="https://tastuaki.github.io/car_index/car_index.css">\n    </head>\n    <body>\n        <header>\n            <h1 class="header_txt" id="main_title"></h1>\n        </header>\n        <div id="main">\n')
                 for i in range(len(body)):
-                    writeline = body[i]
+                    writeline = body[i].replace("	","")
                     if writeline != "":
                         ex.write("            "+writeline+"\n")
                 ex.write('        </div>\n        <footer>\n            <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　\n            <a class="footer_link" href="https://tastuaki.github.io/car_index/brand/new.html">新製品カレンダー</a>\n            </footer>\n  </body>\n</html>\n')
