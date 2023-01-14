@@ -75,7 +75,7 @@ finally:
                 else:
                     bodyline = '<h3 class="header_txt" id="car_name_">'+bodyline+"</h3>"
                     exp = 1
-            elif "<br>" in bodybase:
+            elif "<br>" in bodyline:
                 bodyline = "</p>"
             else:
                 for i in range(brandsum):
