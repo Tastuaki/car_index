@@ -1,4 +1,5 @@
 import urllib.request
+import requests
 import sys
 import os
 from itertools import count
@@ -7,6 +8,25 @@ def listrfind(list,target):
     for i in range(len(list)-1,-1,-1):
         if target in list[i]:
             return i
+
+def itemname(url):
+    itemdata = []
+    text = ""
+    try:
+        res = requests.get(url).text
+    except:
+        print("\""+url+"\""+"Not Found")
+        return ""
+    for h in range(len(res)):
+        text += res[h]
+        if "\n" in res[h]:
+            itemdata.append(text)
+            text = ""
+    for k in range(len(itemdata)):
+        # print(itemdata[k],end="")
+        if "title_block" in itemdata[k]:
+            return itemdata[k+1][itemdata[k+1].find("(")+1:itemdata[k+1].rfind(")")]
+            return itemdata[k+1]
 
 burl=""
 if len(sys.argv) <= 1:
@@ -59,16 +79,22 @@ finally:
                 url = all[k][all[k].find("href=")+6:all[k].find("rel")-2]
                 if bodyline != url:
                     bodyline = '<a class="car_link" href="'+url+'">'+bodyline+'</a><br>'
+                elif "item" no in bodyline:
+                    bodyline = '<a class="car_link" href=""></a><br>'
                 else:
-                    bodyline = '<a class="car_link" href="'+url+'"></a><br>'
+                    bodyline = '<a class="car_link" href="'+url+'">'+itemname(url)+'</a><br>'
             elif exp:
                 exp = False
                 if "。" in bodyline:
                     tan = bodyline
                     bodyline = '<p class="car_explain">'
                     gen = True
-                else:
-                    bodyline = '<p class="car_explain">\n            '+bodyline
+                # else:
+                #     gen = bodyline
+                #     # bodyline = '<p class="car_explain">\n'
+                #     # body.append(bodyline)
+                #     bodyline = gen
+                #     # print(bodyline,end="|\n")
             elif "<blockquote>" in bodybase:
                 if "代" in bodyline:
                     bodyline = '<b>'+bodyline+'</b>'
