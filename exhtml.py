@@ -79,7 +79,7 @@ finally:
                 url = all[k][all[k].find("href=")+6:all[k].find("rel")-2]
                 if bodyline != url:
                     bodyline = '<a class="car_link" href="'+url+'">'+bodyline+'</a><br>'
-                elif "item" no in bodyline:
+                elif "item" not in bodyline:
                     bodyline = '<a class="car_link" href=""></a><br>'
                 else:
                     bodyline = '<a class="car_link" href="'+url+'">'+itemname(url)+'</a><br>'
