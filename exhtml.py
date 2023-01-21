@@ -13,20 +13,23 @@ def itemname(url):
     itemdata = []
     text = ""
     try:
-        res = requests.get(url).text
+        all = urllib.request.urlopen(burl).readlines()
     except:
         print("\""+url+"\""+"Not Found")
         return ""
-    for h in range(len(res)):
-        text += res[h]
-        if "\n" in res[h]:
+    for h in range(len(all)):
+        all[h] = all[h].decode("utf-8")
+    for h in range(len(all)):
+        text += all[h]
+        if "\n" in all[h]:
             itemdata.append(text)
             text = ""
     for k in range(len(itemdata)):
         # print(itemdata[k],end="")
         if "title_block" in itemdata[k]:
             return itemdata[k+1][itemdata[k+1].find("(")+1:itemdata[k+1].rfind(")")]
-            return itemdata[k+1]
+    itemdata = itemdata[k+1][itemdata[k+1].find(">")+1:itemdata[k+1].rfind("<")]
+    return itemdata[itemdata[k+1].find("　")+1:]
 
 burl=""
 if len(sys.argv) <= 1:
