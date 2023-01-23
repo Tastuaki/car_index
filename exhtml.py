@@ -13,23 +13,23 @@ def itemname(url):
     itemdata = []
     text = ""
     try:
-        all = urllib.request.urlopen(burl).readlines()
+        itemdata = urllib.request.urlopen(url).readlines()
+        len_item = len(itemdata)
     except:
-        print("\""+url+"\""+"Not Found")
+        print("\""+url+"\""+" Not Found")
         return ""
-    for h in range(len(all)):
-        all[h] = all[h].decode("utf-8")
-    for h in range(len(all)):
-        text += all[h]
-        if "\n" in all[h]:
-            itemdata.append(text)
-            text = ""
-    for k in range(len(itemdata)):
+    for k in range(len_item):
+        itemdata[k] = itemdata[k].decode("utf-8")
         # print(itemdata[k],end="")
         if "title_block" in itemdata[k]:
-            return itemdata[k+1][itemdata[k+1].find("(")+1:itemdata[k+1].rfind(")")]
-    itemdata = itemdata[k+1][itemdata[k+1].find(">")+1:itemdata[k+1].rfind("<")]
-    return itemdata[itemdata[k+1].find("　")+1:]
+            itemdata[k+1] = itemdata[k+1].decode("utf-8")
+            exb = itemdata[k+1].rfind("(")
+            if exb != -1:
+                return itemdata[k+1][exb+1:itemdata[k+1].rfind(")")]
+            else:
+                text = itemdata[k+1][itemdata[k+1].find(">")+1:itemdata[k+1].rfind("<")]
+                return text[text.find("　")+1:]
+    return ""
 
 burl=""
 if len(sys.argv) <= 1:
@@ -80,9 +80,10 @@ finally:
             if "</a>" in bodyline:
                 bodyline = bodyline[bodyline.find(">")+1:bodyline.rfind("<")]
                 url = all[k][all[k].find("href=")+6:all[k].find("rel")-2]
+
                 if bodyline != url:
                     bodyline = '<a class="car_link" href="'+url+'">'+bodyline+'</a><br>'
-                elif "item" not in bodyline:
+                elif "item" not in url:
                     bodyline = '<a class="car_link" href=""></a><br>'
                 else:
                     bodyline = '<a class="car_link" href="'+url+'">'+itemname(url)+'</a><br>'
