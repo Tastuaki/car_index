@@ -36,7 +36,7 @@ if len(sys.argv) <= 1:
     print("URLがありません")
     exit()
 else:
-    burl = sys.argv[1]
+    burl = "https://muuseo.com/Tastuaki33/diaries/"+sys.argv[1]
 
 body = []
 exp = False
