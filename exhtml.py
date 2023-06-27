@@ -45,11 +45,11 @@ tan = ""
 exbegin = 0
 brand = ["トミカ","ホットウィール","マジョレット","チョロＱ","ディーラー","京商","コーヒーのおまけ","マッチボックス","ウェリー","RMZ","マイスト","グリーンライト"]
 brandsum=len(brand)
-try:
-    os.mkdir("exchanged")
-except FileExistsError:
-    pass
-finally:
+# try:
+#     os.mkdir("exchanged")
+# except FileExistsError:
+#     pass
+# finally:
         try:
             all = urllib.request.urlopen(burl).readlines()
         except urllib.error.URLError:
