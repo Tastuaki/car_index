@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" id="main_html">
+    <head>
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
+        <link rel="stylesheet" href="https://tastuaki.github.io/car_index/car_index.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="header_txt" id="main_title">アストンマーチン</h1>
+        </header>
+        <div id="main">
+            <h3 class="header_txt" id="car_name_dbrs9">DBRS9</h3>
+            <p class="car_explain">
+                アストンマーティン DB9をベースにしたGT3クラスのレーシングカーです。<br>
+                バーウェルモータースポーツのモデルです。2006年、2007年のイギリスGTチャンピョンシップのGT3クラスで優勝しました。<br>
+            </p>
+            <p>2006 FIA GT3 European Championship #44</p>
+            <p class="brand">ミニチャンプス</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1094">FIA GT3 Race Spa-Francorchamps 2006 - Machitski/Cocker</a><br>
+            <h3 class="header_txt" id="car_name_vantage">ヴァンテージ</h3>
+            <p class="car_explain">
+                <b>3代目</b><br>
+                アストンマーティン DB9とパーツを共用しており、DB9の縮小版のような車ですが、2シーターの完全なスポーツカーです。比較的安価ですが、それでも1500万はするとか。<br>
+            </p>
+            <p class="brand">ホットウィール</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2120">2021 HW Exotics 5-Pack(グリーン)</a><br>
+            <p>GT8</p>
+            <p class="brand">マジョレット</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/665">グレー</a><br>
+            <p class="car_explain">
+                <b>4代目</b><br>
+            </p>
+            <p class="brand">RMZ city</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2323">ブラック</a><br>
+            <h3 class="header_txt" id="car_name_vanquish_zagato">バンキッシュ ザガート</h3>
+            <p class="car_explain">
+                ザガートととのコラボでアストンマーティン ヴァンキッシュをベースに開発されたモデルです。クーぺ、ヴォランテ、シューティングブレークは99台、スピードスターは28台限定で生産されました。<br>
+                最高出力は600psまで向上し、リアライトは円形の専用のものに変更されています。<br>
+            </p>
+            <p>クーペ</p>
+            <p class="brand">トミカ</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1147">初回特別仕様(グレー)</a><br>
+        </div>
+        <footer>
+            <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
+            <a class="footer_link" href="https://tastuaki.github.io/car_index/brand/new.html">新製品カレンダー</a>
+            </footer>
+  </body>
+</html>
