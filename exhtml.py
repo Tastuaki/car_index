@@ -130,5 +130,5 @@ with open(title+".html",'w+',encoding='utf-8') as ex:
         writeline = body[i].replace("	","")
         if writeline != "":
             ex.write("            "+writeline+"\n")
-    ex.write('        </div>\n        <footer>\n            <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　\n            <a class="footer_link" href="https://tastuaki.github.io/car_index/brand/new.html">新製品カレンダー</a>\n            </footer>\n  </body>\n</html>\n')
+    ex.write('        </div>\n        <footer>\n            <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　\n            <a class="footer_link" href="https://tastuaki.github.io/car_index/brand/new.html">新製品カレンダー</a>\n        </footer>\n  </body>\n</html>\n')
 print("exchange "+ burl+":"+title)
