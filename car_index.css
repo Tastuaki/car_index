@@ -12,6 +12,9 @@ div{
 p{
     word-break:keep-all;
 }
+table{
+    width: 100%;
+}
 a:visited {
     color: blue;
 }
