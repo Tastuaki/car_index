@@ -43,7 +43,7 @@ def listotx(data):
             pdata = ""
     return sdata
 
-burl="https://hotwheels.fandom.com/wiki/List_of_2022_Hot_Wheels"
+burl="https://hotwheels.fandom.com/wiki/List_of_2023_Hot_Wheels"
 
 try:
     all = urllib.request.urlopen(burl).readlines()
@@ -82,11 +82,59 @@ for i,s in enumerate(sdata):
     if "\n" in s:
         sdata[i] = s.replace("\n ("," (")
         if "\n" in sdata[i]:
-            sdata[i] = sdata[i].replace("\n\t","\t").replace("\n","-")
+            sdata[i] = sdata[i].replace("\n\t","\t").replace("\n","=")
             if "Exclusive" in s:
                 edata.append(sdata[i])
+                sdata.pop(i)
+        else:
+            pass
+
+target = []
+walmart = []
+kroger = []
+dollar = []
+etc = []
+
+be = "                <tr><td>"
+af = "</td></tr>"
+for i,s in enumerate(edata):
+    # print(s.split("\t"))
+    mn,no,name,seg,segno=s.split("\t",4)
+    name = name[:name.rfind(" (")]
+    segno = segno[:segno.rfind("/")]
+    seg,exv=seg.split("=",1)
+    etxt = name+"\t"
+    if "Target" in exv:
+        etxt = etxt.replace("\t","</td><td>")
+        etxt = be+etxt+segno+af
+        target.append(etxt)
+    else:
+        etxt += seg+"\t"+segno
+        etxt = etxt.replace("\t","</td><td>")
+        etxt = be+etxt+af
+        if "Walmart" in exv:
+            walmart.append(etxt)
+        elif "Kroger" in exv:
+            kroger.append(etxt)
+        elif "Dollar" in exv:
+            dollar.append(etxt)
+        else:
+            etxt = etxt[len(be):len(etxt)-(len(af))]
+            etxt = etxt+"\t"+exv
+            etxt = etxt.replace("\t","</td><td>")
+            etxt = be+etxt+af
+            etc.append(etxt)
+            print(exv)
 
 with open("ex","w+",encoding="utf-8") as f:
     f.writelines([d+"\n" for d in sdata])
-    f.write("-----Exclusive------\n")
-    f.writelines([d+"\n" for d in edata])
+    f.write("-----Exclusive------\ntarget\n")
+    f.writelines([d+"\n" for d in target])
+    f.write("walmart\n")
+    f.writelines([d+"\n" for d in walmart])
+    f.write("kroger\n")
+    f.writelines([d+"\n" for d in kroger])
+    f.write("Dollar General\n")
+    f.writelines([d+"\n" for d in dollar])
+    f.write("etc\n")
+    f.writelines([d+"\n" for d in etc])
