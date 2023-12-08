@@ -15,7 +15,7 @@ def indata(txt):
                 txt = txt[:txt.rfind("</")]
                 # print(txt) 
             else:
-                if "</" in txt:
+                if ">" in txt:
                     t,txt = txt.split("<",1)
                     txt = "<"+txt
                     ts.append(t)
@@ -35,6 +35,7 @@ def listotx(data):
     pdata = ""
     sdata = []
     for d in data:
+        # print(list(d))
         if d != "\n":
             pdata += d.replace("\t"," ") + "\t"
             # print(pdata)
@@ -43,7 +44,7 @@ def listotx(data):
             pdata = ""
     return sdata
 
-burl="https://hotwheels.fandom.com/wiki/List_of_2023_Hot_Wheels"
+burl="https://hotwheels.fandom.com/wiki/List_of_2021_Hot_Wheels"
 
 try:
     all = urllib.request.urlopen(burl).readlines()
@@ -82,13 +83,11 @@ for i,s in enumerate(sdata):
     if "\n" in s:
         sdata[i] = s.replace("\n ("," (")
         if "\n" in sdata[i]:
-            sdata[i] = sdata[i].replace("\n\t","\t").replace("\n","=")
             if "Exclusive" in s:
-                edata.append(sdata[i])
+                edata.append(sdata[i].replace("\n\t","\t").replace("\n","|"))
                 sdata.pop(i)
-        else:
-            pass
-
+            sdata[i] = sdata[i].replace("\n\t","\t").replace("\n","|")
+            
 target = []
 walmart = []
 kroger = []
@@ -102,7 +101,7 @@ for i,s in enumerate(edata):
     mn,no,name,seg,segno=s.split("\t",4)
     name = name[:name.rfind(" (")]
     segno = segno[:segno.rfind("/")]
-    seg,exv=seg.split("=",1)
+    seg,exv=seg.split("|",1)
     etxt = name+"\t"
     if "Target" in exv:
         etxt = etxt.replace("\t","</td><td>")
