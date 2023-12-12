@@ -36,6 +36,8 @@ while True:
     
     if e:
         print("make " + fname)
+        with open(base+fname+"a","w+") as f:
+            f.write("")
     else:
         print("already exist "+fname)
 
