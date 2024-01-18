@@ -7,7 +7,9 @@ def indata(txt):
     # print(txt)
     txt = txt.strip()
     for i in count():
-        if "<" == txt[0]:
+        if txt == "":
+            break
+        elif "<" == txt[0]:
             txt = txt[txt.find(">")+1:]
             # print(txt)
         else:
