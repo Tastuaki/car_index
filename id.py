@@ -1,5 +1,6 @@
 import urllib.request
 from itertools import count
+import html
 
 def indata(txt):
     t = ""
@@ -60,7 +61,7 @@ while q:
     for i in count():
         if "h1" in all[i]:
             # print("Name")
-            print(indata(all[i]))
+            print(indata(html.unescape(all[i])))
         if "item_description" in all[i]:
             # print("Explain")
             print(all[i+1].replace("      ","").replace("<br />","\n"))
