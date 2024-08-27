@@ -13,7 +13,10 @@ def indata(txt):
             # print(txt)
         else:
             if ">" == txt[len(txt)-1]:
-                txt = txt[:txt.rfind("</")]
+                if txt.rfind("</") != -1:
+                    txt = txt[:txt.rfind("</")]
+                elif txt[len(txt)-4:len(txt)] == "<br>":
+                    txt = txt[:txt.rfind("<br>")]
                 # print(txt) 
             else:
                 if ">" in txt:
@@ -36,6 +39,7 @@ def tomi_data(all):
     ser = []
     car = []
     nscar = []
+    atxt = ""
     j = -1
     for i,data in enumerate(all):
         if "footMain01" in data:
@@ -46,10 +50,15 @@ def tomi_data(all):
             car.append("")
             nscar.append("")
         elif "CarName" in data:
+            atxt = ""
             if car[j] != "":
                 car[j] += "/"
             if "<br>" in data:
-                car[j] += indata(data.replace("<br>",""))+" "+indata(all[i+1])
+                x = i+1
+                while "<p" not in all[x]:
+                    atxt += " "+indata(all[x])
+                    x += 1
+                car[j] += indata(data.replace("<br>",""))+atxt
             else:
                 car[j] += indata(data)
         elif "mark-irekae" in data:
@@ -75,6 +84,11 @@ for i in count(hday):
 
 for h in range(len(all)):
     all[h] = all[h].decode("utf-8")
+
+aser = []
+acar = []
+anscar = []
+aser,acar,anscar=tomi_data(all)
 for h in range(len(now)):
     now[h] = now[h].decode("utf-8")
 for h in range(len(oneaf)):
@@ -98,16 +112,23 @@ oser = []
 ocar = []
 onscar = []
 oser,ocar,onscar=tomi_data(oneaf)
-print(i)
-print(aser)
-print(acar)
-print(anscar)
-print(i-1)
-print(nser)
-print(ncar)
-print(nnscar)
-print(i-2)
-print(oser)
-print(ocar)
-print(onscar)
+for ix,x in enumerate(aser):
+    print(x)
+    print(burl+str(i)+".htm")
+    print(acar[ix])
+    if anscar[ix] != "":
+        print("廃盤:"+anscar[ix])
+for ix,x in enumerate(oser):
+    print(x)
+    print(burl+str(i-1)+".htm")
+    print(ocar[ix])
+    if onscar[ix] != "":
+        print("廃盤:"+onscar[ix])
+for ix,x in enumerate(nser):
+    print(x)
+    print(burl+str(i-2)+".htm")
+    print(ncar[ix])
+    if nnscar[ix] != "":
+        print("廃盤:"+nnscar[ix])
+
     # print(data)
