@@ -39,8 +39,13 @@ def tomi_data(all):
     ser = []
     car = []
     nscar = []
+    date = []
     atxt = ""
+    datetx=""
     j = -1
+    fsday = False
+    sday = 0
+    # print(all)
     for i,data in enumerate(all):
         if "footMain01" in data:
             break
@@ -49,6 +54,7 @@ def tomi_data(all):
             j += 1
             car.append("")
             nscar.append("")
+            date.append("")
         elif "CarName" in data:
             atxt = ""
             if car[j] != "":
@@ -61,11 +67,31 @@ def tomi_data(all):
                 car[j] += indata(data.replace("<br>",""))+atxt
             else:
                 car[j] += indata(data)
+        elif "CarPrice" in data:
+            datetx = indata(data[data.find("年")+1:data.find("発売予定")])
+            mon,day = datetx.split("月")
+            if fsday == False:
+                bday = 1
+                d = datetime.date(int(data[data.find(">")+1:data.find("年")]),int(mon),bday).weekday()
+                if d != 5:
+                    if d == 6:
+                        bday = 7
+                    else:
+                        while d != 5:
+                            d += 1
+                            bday += 1
+                sday = bday + 14
+                sday = str(sday)
+                fsday = True
+            if day != "":
+                date[j] = mon + "|" + day[:day.find("日")]
+            else:
+                date[j] = mon + "|" + sday
         elif "mark-irekae" in data:
             if nscar[j] != "":
                 nscar[j] += "/"
             nscar[j] += indata(data)
-    return ser,car,nscar
+    return ser,car,nscar,date
 
 burl="https://www.takaratomy.co.jp/products/tomica/new/"
 
@@ -88,43 +114,49 @@ for h in range(len(all)):
 aser = []
 acar = []
 anscar = []
-aser,acar,anscar=tomi_data(all)
+adate = []
+aser,acar,anscar,adate=tomi_data(all)
 for h in range(len(now)):
     now[h] = now[h].decode("utf-8")
 for h in range(len(oneaf)):
     oneaf[h] = oneaf[h].decode("utf-8")
 
-# with open("test.html","w+",encoding="UTF-8") as f:
-#     f.writelines(all)
-
-# print(all)
-# exit()
-
-aser = []
-acar = []
-anscar = []
-aser,acar,anscar=tomi_data(all)
 nser = []
 ncar = []
 nnscar = []
-nser,ncar,nnscar=tomi_data(now)
+ndate = []
+nser,ncar,nnscar,ndate=tomi_data(now)
 oser = []
 ocar = []
 onscar = []
-oser,ocar,onscar=tomi_data(oneaf)
+odate = []
+oser,ocar,onscar,odate=tomi_data(oneaf)
+
+oadate = ""
 for ix,x in enumerate(aser):
+    if adate[ix] != oadate:
+        print(adate[ix])
+        oadate = adate[ix]
     print(x)
     print(burl+str(i)+".htm")
     print(acar[ix])
     if anscar[ix] != "":
         print("廃盤:"+anscar[ix])
+oodate = ""
 for ix,x in enumerate(oser):
+    if odate[ix] != oodate:
+        print(odate[ix])
+        oodate = odate[ix]
     print(x)
     print(burl+str(i-1)+".htm")
     print(ocar[ix])
     if onscar[ix] != "":
         print("廃盤:"+onscar[ix])
+ondate = ""
 for ix,x in enumerate(nser):
+    if ndate[ix] != ondate:
+        print(ndate[ix])
+        ondate = ndate[ix]
     print(x)
     print(burl+str(i-2)+".htm")
     print(ncar[ix])
