@@ -11,7 +11,7 @@
             <div id="URLS">
                 <a href="https://www.ebay.com/sch/i.html?_nkw=" id="ebay">ebay</a>
                 <a href="https://www.suruga-ya.jp/kaitori/search_buy?search_word=" id="suruga">駿河屋</a>
-                <a href="https://jp.mercari.com/search" id="mercari">メルカリ</a>
+                <a href="https://jp.mercari.com/search?keyword=" id="mercari">メルカリ</a>
                 <a href="https://auctions.yahoo.co.jp/search/search?p=" id="yahoo">ヤフオク</a><br><br>
                 <a href="https://www.google.com/search?q=" id="google">Google</a>
                 <a href="https://twitter.com/search?q=" id="twitter">Twitter</a>
@@ -24,7 +24,7 @@
             let ser = document.getElementById('search_text')
             let eba = document.getElementById('ebay')
             let sur = document.getElementById('suruga')
-            // let mer = document.getElementById('mercari')
+            let mer = document.getElementById('mercari')
             let yah = document.getElementById('yahoo')
             let gol = document.getElementById('google')
             let twi = document.getElementById('twitter')
@@ -40,7 +40,7 @@
                 ser.setAttribute("size",size)
                 sur.setAttribute('href',"https://www.suruga-ya.jp/kaitori/search_buy?search_word="+ser.value)
                 eba.setAttribute('href',"https://www.ebay.com/sch/i.html?_nkw="+ser.value)
-                // mer.setAttribute('href',"https://jp.mercari.com/search"+ser.value)
+                mer.setAttribute('href',"https://jp.mercari.com/search?keyword="+ser.value)
                 yah.setAttribute('href',"https://auctions.yahoo.co.jp/search/search?p="+ser.value)
                 gol.setAttribute('href',"https://www.google.com/search?q="+ser.value)
                 twi.setAttribute('href',"https://twitter.com/search?q="+ser.value)
