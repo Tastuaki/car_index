@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja" id="main_html">
+    <head></head>
+    <body>
+        <header>
+            <h1 id="main_title">検索</h1>
+        </header>
+        <div id="main">
+            <label>検索：<input id="search_text" type="text" size="100" placeholder="検索したいものを入力してください"></label>
+            <br><br>
+            <div id="URLS">
+                <a href="https://www.ebay.com/sch/i.html?_nkw=" id="suruga">ebay</a>
+                <a href="https://www.suruga-ya.jp/kaitori/search_buy?search_word=" id="suruga">駿河屋</a>
+                <a href="https://jp.mercari.com/search" id="mercari">メルカリ</a>
+                <a href="https://auctions.yahoo.co.jp/search/search?p=" id="yahoo">ヤフオク</a><br><br>
+                <a href="https://www.google.com/search?q=" id="google">Google</a>
+                <a href="https://twitter.com/search?q=" id="twitter">Twitter</a>
+                <a href="https://ja.wikipedia.org/w/index.php?search=" id="wiki">Wikipedia</a>
+                <a href="https://hotwheels.fandom.com/wiki/Special:Search?query=" id="hotwheel">ホットウィール wiki</a>
+                <a href="https://matchbox.fandom.com/wiki/Special:Search?query=" id="match">マッチボックス wiki</a>
+            </div>
+        </div>
+        <script>
+            let ser = document.getElementById('search_text')
+            let eba = document.getElementById('ebay')
+            let sur = document.getElementById('suruga')
+            // let mer = document.getElementById('mercari')
+            let yah = document.getElementById('yahoo')
+            let gol = document.getElementById('google')
+            let twi = document.getElementById('twitter')
+            let wik = document.getElementById('wiki')
+            let hot = document.getElementById('hotwheel')
+            let mat = document.getElementById('match')
+            let size = 100
+            ser.oninput=function (){
+                size = ser.value.length+10
+                if (size < 100){
+                    size = 100
+                }
+                ser.setAttribute("size",size)
+                sur.setAttribute('href',"https://www.suruga-ya.jp/kaitori/search_buy?search_word="+ser.value)
+                eba.setAttribute('href',"https://www.ebay.com/sch/i.html?_nkw="+ser.value)
+                // mer.setAttribute('href',"https://jp.mercari.com/search"+ser.value)
+                yah.setAttribute('href',"https://auctions.yahoo.co.jp/search/search?p="+ser.value)
+                gol.setAttribute('href',"https://www.google.com/search?q="+ser.value)
+                twi.setAttribute('href',"https://twitter.com/search?q="+ser.value)
+                wik.setAttribute('href',"https://ja.wikipedia.org/w/index.php?search="+ser.value)
+                hot.setAttribute('href',"https://hotwheels.fandom.com/wiki/Special:Search?query="+ser.value)
+                mat.setAttribute('href',"https://matchbox.fandom.com/wiki/Special:Search?query="+ser.value)
+            }
+        </script>
+    </body>
+
+
