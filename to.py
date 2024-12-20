@@ -93,19 +93,27 @@ def tomi_data(all):
             nscar[j] += indata(data)
     return ser,car,nscar,date
 
+def yover(y):
+    if (y % 100) == 0:
+        y = (y-100)+12
+    elif (y % 100) == 99:
+        y = (y-100)+11
+    return y
+
 burl="https://www.takaratomy.co.jp/products/tomica/new/"
 
 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9), 'JST'))
 day = now.strftime("%y%m")
 hday = int(day)
+hday = 2501
 
 for i in count(hday):
     try:
         all = urllib.request.urlopen(burl+str(i)+".htm").readlines()
     except urllib.error.URLError:
         i -= 1
-        now = urllib.request.urlopen(burl+str(i-2)+".htm").readlines()
-        oneaf = urllib.request.urlopen(burl+str(i-1)+".htm").readlines()
+        oneaf = urllib.request.urlopen(burl+str(yover(i-1))+".htm").readlines()
+        now = urllib.request.urlopen(burl+str(yover(i-2))+".htm").readlines()
         break
 
 for h in range(len(all)):
@@ -138,7 +146,7 @@ for ix,x in enumerate(aser):
         print(adate[ix])
         oadate = adate[ix]
     print(x)
-    print(burl+str(i)+".htm")
+    print(burl+str(yover(i))+".htm")
     print(acar[ix])
     if anscar[ix] != "":
         print("廃盤:"+anscar[ix])
@@ -148,7 +156,7 @@ for ix,x in enumerate(oser):
         print(odate[ix])
         oodate = odate[ix]
     print(x)
-    print(burl+str(i-1)+".htm")
+    print(burl+str(yover(i-1))+".htm")
     print(ocar[ix])
     if onscar[ix] != "":
         print("廃盤:"+onscar[ix])
@@ -158,7 +166,7 @@ for ix,x in enumerate(nser):
         print(ndate[ix])
         ondate = ndate[ix]
     print(x)
-    print(burl+str(i-2)+".htm")
+    print(burl+str(yover(i-2))+".htm")
     print(ncar[ix])
     if nnscar[ix] != "":
         print("廃盤:"+nnscar[ix])
