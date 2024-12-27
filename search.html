@@ -18,7 +18,10 @@
                 <a href="https://twitter.com/search?q=" id="twitter">Twitter</a>
                 <a href="https://ja.wikipedia.org/w/index.php?search=" id="wiki">Wikipedia</a>
                 <a href="https://hotwheels.fandom.com/wiki/Special:Search?query=" id="hotwheel">ホットウィール wiki</a>
-                <a href="https://matchbox.fandom.com/wiki/Special:Search?query=" id="match">マッチボックス wiki</a>
+                <a href="https://matchbox.fandom.com/wiki/Special:Search?query=" id="match">マッチボックス wiki</a><br><br>
+                <a href="https://www.animate-onlineshop.jp/products/list.php?mode=search&smt=" id="animate">アニメイト</a>
+                <a href="https://www.melonbooks.co.jp/search/search.php?mode=search&name=" id="melon">メロンブックス</a>
+                <a href="https://www.gamers.co.jp/products/list.php?mode=search&smt=" id="gamers">ゲーマーズ</a>
             </div>
         </div>
         <script>
@@ -33,6 +36,9 @@
             let wik = document.getElementById('wiki')
             let hot = document.getElementById('hotwheel')
             let mat = document.getElementById('match')
+            let ani = document.getElementById('animate')
+            let mel = document.getElementById('melon')
+            let gam = document.getElementById('gamers')
             let size = 100
             ser.oninput=function (){
                 size = ser.value.length+10
@@ -50,6 +56,9 @@
                 wik.setAttribute('href',"https://ja.wikipedia.org/w/index.php?search="+ser.value)
                 hot.setAttribute('href',"https://hotwheels.fandom.com/wiki/Special:Search?query="+ser.value)
                 mat.setAttribute('href',"https://matchbox.fandom.com/wiki/Special:Search?query="+ser.value)
+                ani.setAttribute('href',"https://www.animate-onlineshop.jp/products/list.php?mode=search&smt="+ser.value)
+                mel.setAttribute('href',"https://www.melonbooks.co.jp/search/search.php?mode=search&name="+ser.value)
+                gam.setAttribute('href',"https://www.gamers.co.jp/products/list.php?mode=search&smt="+ser.value)
             }
         </script>
     </body>
