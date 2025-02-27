@@ -10,7 +10,8 @@
             <br><br>
             <div id="URLS">
                 <a href="https://www.ebay.com/sch/i.html?_nkw=" id="ebay">ebay</a>
-                <a href="https://www.suruga-ya.jp/kaitori/search_buy?search_word=" id="suruga">駿河屋</a>
+                <a href="https://www.suruga-ya.jp/kaitori/search_buy?search_word=" id="surugab">駿河屋(買取)</a>
+                <a href="https://www.suruga-ya.jp/search?search_word=" id="surugas">駿河屋(販売)</a>
                 <a href="https://jp.mercari.com/search?keyword=" id="mercari">メルカリ</a>
                 <a href="https://auctions.yahoo.co.jp/search/search?p=" id="yahoo">ヤフオク</a>
                 <a href="https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=t" id="yahooc">ヤフオク(落札済)</a><br><br>
@@ -27,7 +28,8 @@
         <script>
             let ser = document.getElementById('search_text')
             let eba = document.getElementById('ebay')
-            let sur = document.getElementById('suruga')
+            let sub = document.getElementById('surugab')
+            let sus = document.getElementById('surugas')
             let mer = document.getElementById('mercari')
             let yah = document.getElementById('yahoo')
             let yac = document.getElementById('yahooc')
@@ -47,7 +49,8 @@
                 }
                 ser.setAttribute("size",size)
                 eba.setAttribute('href',"https://www.ebay.com/sch/i.html?_nkw="+ser.value)
-                sur.setAttribute('href',"https://www.suruga-ya.jp/kaitori/search_buy?search_word="+ser.value)
+                sub.setAttribute('href',"https://www.suruga-ya.jp/kaitori/search_buy?search_word="+ser.value)
+                sus.setAttribute('href',"https://www.suruga-ya.jp/search?search_word="+ser.value)
                 mer.setAttribute('href',"https://jp.mercari.com/search?keyword="+ser.value)
                 yah.setAttribute('href',"https://auctions.yahoo.co.jp/search/search?p="+ser.value)
                 yac.setAttribute('href',"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p="+ser.value)
