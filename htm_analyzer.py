@@ -4,9 +4,8 @@ from itertools import count
 import re
 import os
 
-bkey={"url":'',"end_tag":'',"search_tags":[],"tag_count":0,"search_result":True,"next":False}
-# tkey={"url":'',"end_tag":'show-more',"search_tags":['<a class="card-link'],"tag_count":1,"search_result":True,"next":True}
-
+# bkey={"name":'',"url":'',"end_tag":'',"search_tags":[],"tag_count":0,"search_result":True,"next":False}
+bkey={"name":'',"url":'',"end_tag":'',"search_tags":''}
 
 def acs(url):
     try:
@@ -82,50 +81,57 @@ def ittrr(key):
             return sdata
             break
         else:
-            for tag in key["search_tags"]:
-                if tag in data:
-                    print(data)
-                    if "<a" in data:
-                        url = data[data.find('href="')+6:data.rfind('.')+5]
-                        if "http" not in url:
-                            burl = ""
-                            eurl = ""
-                            burl,eurl = key["url"].split(".co",1)
-                            if url[0] == "/":
-                                url = burl+".co"+eurl[:eurl.find("/")]+url
-                            else:
-                                url = burl+".co"+eurl[:eurl.find("/")+1]+url
-                    if indata(data) == "":
-                        j=1
-                        name = ""
-                        while indata(all[i+j]) != "":
-                            print(all[i+j])
-                            name=indata(all[i+j])
-                            j += 1
-                        row = url+" "+name
-                        sdata.append(row)
-                        print("|"+row)
-                    else:
-                        row = url+" "+indata(data)
-                        sdata.append(row)
-                        print("|"+row)
-                    # if key["search_result"]:
-                    #     key["search_result"] = False
+            # for tag in key["search_tags"]:
+            if key["search_tags"] in data:
+                print(data)
+                if "<a" in data:
+                    url = data[data.find('href="')+6:data.rfind('.')+5]
+                    if "http" not in url:
+                        burl = ""
+                        eurl = ""
+                        burl,eurl = key["url"].split(".co",1)
+                        if url[0] == "/":
+                            url = burl+".co"+eurl[:eurl.find("/")]+url
+                        else:
+                            url = burl+".co"+eurl[:eurl.find("/")+1]+url
+                if indata(data) == "":
+                    en = "</"+data[data.find("<")+1:data.find(" ")]+">"
+                    j=1
+                    while en not in data:
+                    # name = ""
+                    # while indata(all[i+j]) != "":
+                    #     print(all[i+j])
+                    #     name=indata(all[i+j])
+                    #     j += 1
+                    # row = url+" "+name
+                        data = all[i+j]
+                        sdata.append(data)
+                        print("|"+data)
+                        j += 1
+                    return sdata
+                else:
+                    row = url+" "+indata(data)
+                    sdata.append(row)
+                    print("|"+row)
+                # if key["search_result"]:
+                #     key["search_result"] = False
 
 def set_key(key,row):
-    stag = ""
-    key["url"],key["end_tag"],stag=row.split("|",2)
-    while "|" in stag:
-        tag = ""
-        tag,stag = stag.split("|",1)
-        key["search_tags"].append(tag)
-    if stag != "":
-        key["search_tags"].append(stag)
+    row = row.replace("\n","")
+    key["name"],key["url"],key["end_tag"],key["search_tags"]=row.split("|")
+    # stag = ""
+    # key["name"],key["url"],key["end_tag"],stag=row.split("|",3)
+    # while "|" in stag:
+    #     tag = ""
+    #     tag,stag = stag.split("|",1)
+    #     key["search_tags"].append(tag)
+    # if stag != "":
+    #     key["search_tags"].append(stag)
     return key
         
 
 base = os.path.dirname(__file__)
-files_path = base+"\\ts"
+files_path = base+"\\item.html"
 set_path = base+"\\set"
 print(set_path)
 
@@ -141,8 +147,15 @@ for setting in sett:
     print(key)
     wdata = ittrr(key)
     # print(wdata)
-    with open(files_path,"+a",encoding='utf-8') as f:
-        f.writelines(wdata)
+
+swdata=[]
+for k,wd in enumerate(wdata):
+    if "<a" in wd:
+        swdata.append(wd[wd.find("<a"):wd.rfind("/a>")+3]+"\n")
+print(swdata)
+exit()
+with open(files_path,"+a",encoding='utf-8') as f:
+    f.writelines(swdata)
 # key_toys_de = bkey.copy()
 # key_toys_de["url"] = ittrr(key)
 # key_toys_de["search_tags"].append("product-carousel")
