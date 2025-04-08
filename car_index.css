@@ -54,4 +54,6 @@ footer{
     border:none;
     outline:none;
     background:transparent;
+    text-decoration:underline;
+    color:blue;
 }
