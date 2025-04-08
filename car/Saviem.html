@@ -10,7 +10,7 @@
         item_w.onload = function() {
             item_w.document.getElementById("item_img").src=data[n][0];
             item_w.document.getElementById("item_img").width=w * 0.8;
-            item_w.document.getElementById("item_img").height=h * 0.8;
+            // item_w.document.getElementById("item_img").height=h * 0.8;
             item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
             if(data[n][2] != ""){
                 urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][2]+'">画像の保存場所</a>';
