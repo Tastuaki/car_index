@@ -1,4 +1,46 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["majorette/citroen/2CV/yellow/IMAG3121_1.jpg","ビンテージコレクションの1台です。独特のフォルムが良いですね。","466"],
+                ["majorette/citroen/2CV/red/40FAB9FD-6636-403C-A05D-2FFD403798F1.jpeg","","1168"],
+                ["welly/citroen/2cv/beige/bd6b564ceb9dd7eb4214f96c5a552a3a-converted.jpg","","1410"],
+                ["siku/citroen/2CV/green/IMG_8774.JPEG","ホイールまでしっかり再現されています。","3390"],
+                ["welly/citroen/2cv/Fourgonnette/silver/d364affea7bd15bc5d9f7297cd11fd22-converted.jpeg","リアタイヤがボディに当たってる気がして走らせるのが少し怖いです。","1326"],
+                ["welly/citroen/2cv/Fourgonnette/white/c2d7b5e6b69a9169efe1fb67a3c9f315-converted.jpeg","左側のフロントフェンダーにチップがあります。","1486"],
+                ["majorette/citroen/C2/ANDROS/bb1196dc6ad3ebf8ad0701ece95c2450-converted.jpeg","アンドロス トロフィーという氷上ラリーの参戦車のようです。","1820"],
+                ["majorette/citroen/C3/3gen/white/58CC0B7E-B652-4D90-B3FB-BF8770429A7C.jpeg","ユーロ ホットカーズ セレクションの1台です。ちゃんとメインの方のヘッドライトをクリアパーツにしています。エアバンプのバイトーンルーフと同じカラーの差し色も印刷されていて作りはかなり良いです。","802"],
+                ["norev/citroen/c4/1gen/gray/f.jpeg","","3026"],
+                ["majorette/citroen/C4/1gen/red/IMAG3292_1.jpg","ウイングとリアウィンドウパーツが一体化しています。リアがやけにホンダ CR-Zに見えます。気のせいですかね？","608"],
+                ["majorette/citroen/C4/2gen/brown/35d2cc1aa699a51cc3751c0c44c1c6ce-converted.JPEG","出来はとてもいいです。流石ディーラで配られるだけありますね。と言っても実車は見たことないですが…","2309"],
+                ["HW/citroen/C4/WRC/2010 AII STARS/IMG_E6198.JPG","ファストカラーはシンプルな赤色でした。ぱっと見普通のシトロエン C4にも見えます。","3387"],
+                ["matchbox/citroen/e-c4 X/glay/IMG_8773.JPEG","またマニアックなモデルがミニカーになったなと思いましたが、どうやらヨーロッパでは人気のあるモデルだそうです。ボンネットはおまけ程度に開きます。","3389"],
+                ["majorette/citroen/C CROSSER/glay/c92a4a43a35339436cd4db753083c921-converted.JPEG","リアもちゃんとシトロエンになっています。","1976"],
+                ["norev/citroen/DS/norev/57bb43c19ae0d5ce20facb0715214be0-converted.jpeg","ノレブカラーのミニカーです。なんともノレブらしい1台です。","2944"],
+                ["welly/citroen/DS/beige/IMG_8778.JPEG","","3564"],
+                ["norev/citroen/sm/gold/ab11f9d7fa14ac2bd7b7ba3359bb4c98-converted.jpeg","","2945"],
+                ["norev/citroen/Xsara/wrc/red_white/57565fe5fb8422faedb6a19ef8863183-converted.jpeg","シンプルなカラーですが2001年のカタルーニャラリーのカラーリングに近いのでそれを元にしたものと思われます。","2840"],
+                ["CMs/citroen/Xsara/wrc/2006 monte/2a54ee26d6c789debcee4e140944c6cc-converted.jpeg","よく出来ていてカッコいい…と思っていたらホイールの塗料がベタ付いているようです。ケースのまま飾るのが正解かな…","1811"],
+                ["majorette/citroen/Xsara/wrc/2006 monte/64e18c1492845d91352b26f69fa2b362-converted.jpeg","","1817"],
+                ["majorette/citroen/Xsara/wrc/2003 Wales/968aaaf0ea523f9e78cc476c44638133-converted.jpeg","2003年の最終戦、ウェールズラリーGBに参戦した、ゼッケン18番のモデルです。結果は2位でした。","1823"],
+                ["siku/citroen/traction/white/037A27B7-1E59-461E-A83B-9424A326EC70.jpeg","ドアが普段とは逆向きに開いたりと当時の車らしいところもギミックとして再現されています。","3076"],
+                ["ELIGOR/citroen/traction/silver/IMG_E9388.JPG","ボンネットとトランクが開きます。","3388"]];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -14,25 +56,25 @@
                 40年以上生産・販売され続けた見た目は迷車、中身は名車です。小型車で狭そうな見た目ですが、中は広いそうです。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/466">イエロー/ブラック</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1168">レッド/ブラック</a><br>
+            <button class="car_item" onclick="item(1)">イエロー/ブラック</button><br>
+            <button class="car_item" onclick="item(2)">レッド/ブラック</button><br>
             <p class="brand">ウェリー</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1410">ベージュ</a><br>
+            <button class="car_item" onclick="item(3)">ベージュ</button><br>
             <p class="brand">ジク</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3390">グリーン</a><br>
+            <button class="car_item" onclick="item(4)">グリーン</button><br>
             <h3 class="header_txt" id="car_name_2cv_fourgonnette">2CV フルゴネット</h3>
             <p class="car_explain">
                 シトロエン 2CVをベースにした商用バンです。エンジンは2気筒で積載量は400kg程でした。ベース車と同じく長寿で、20年以上生産され続けました。<br>
             </p>
             <p class="brand">ウェリー</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1326">シルバー</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1486">ホワイト</a><br>
+            <button class="car_item" onclick="item(5)">シルバー</button><br>
+            <button class="car_item" onclick="item(6)">ホワイト</button><br>
             <h3 class="header_txt" id="car_name_c2">C2</h3>
             <p class="car_explain">
                 サクソの3ドアモデルの後継にあたる小型車です。C3とプラットフォームを共通化していますが、C3よりはホイールベースが短く、軽量なモデルです。<br>
             </p>
             <p>ANDROS</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1820">イエロー</a><br>
+            <button class="car_item" onclick="item(7)">イエロー</button><br>
             <h3 class="header_txt" id="car_name_c3">C3</h3>
             <p class="car_explain">
                 <b>3代目</b><br>
@@ -42,28 +84,28 @@
             </p>
             シャイン
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/802">ホワイト/レッド</a><br>
+            <button class="car_item" onclick="item(8)">ホワイト/レッド</button><br>
             <h3 class="header_txt" id="car_name_c4">C4</h3>
             <p class="car_explain">
                 <b>初代</b><br>
                 プジョー 307とはプラットフォームやエンジンなどの基本的なものを共通化していますが、デザインはシトロエンらしさが出ています。<br>
             </p>
             <p>前期型<br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3026">グレー</a><br>
-            <!-- <a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/norev/citroen/c4/1gen/gray">グレー</a><br> -->
+            <p class="brand">ノレブ</p>
+            <button class="car_item" onclick="item(9)">グレー</button><br>
             <p>クーペ</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/608">レッド</a><br>
+            <button class="car_item" onclick="item(10)">レッド</button><br>
                 <b>2代目</b><br>
             </p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2309">ブラウン</a><br>
+            <button class="car_item" onclick="item(11)">ブラウン</button><br>
             <h3 class="header_txt" id="car_name_c4_wrc">C4 WRC</h3>
             <p class="car_explain">
                 初代シトロエン C4クーペをベースにしたラリーカーです。2007年のWRCで初登場しました。<br>
             </p>
             <p class="brand">ホットウィール</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3387">2010 AII STARS(レッド)</a><br>
+            <button class="car_item" onclick="item(12)">2010 AII STARS(レッド)</button><br>
             <h3 class="header_txt" id="car_name_c4_x">C4 X</h3>
             <p class="car_explain">
                 3代目シトロエン C4の派生モデルで、C4が5ドアクーペなのに対して、こちらは4ドアセダンになっています。<br>
@@ -71,50 +113,53 @@
             </p>
             <p>e-C4 X</p>
             <p class="brand">マッチボックス</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3389">2023 Moving Parts(グレー)</a><br>
+            <button class="car_item" onclick="item(13)">2023 Moving Parts(グレー)</button><br>
             <h3 class="header_txt" id="car_name_crosser">Cクロッサー</h3>
             <p class="car_explain">
                 三菱 アウトランダーのOEMモデルで、フロントこそシトロエンらしいデザインですが、リアはほぼそのままです。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1976">グレー</a><br>
+            <button class="car_item" onclick="item(14)">グレー</button><br>
             <h3 class="header_txt" id="car_name_ds">DS</h3>
             <p class="car_explain">
                 乗り心地と操縦安定性を重視して作られた高級車です。当時の先進技術を詰め込み、奇抜なデザインは空力性能に特化しています。<br>
             </p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2944">ノレブカラー</a><br>
+            <button class="car_item" onclick="item(15)">ノレブカラー</button><br>
+            <p>DS23</p>
+            <p class="brand">ウェリー</p>
+            <button class="car_item" onclick="item(16)">ベージュ</button><br>
             <h3 class="header_txt" id="car_name_sm">SM</h3>
             <p class="car_explain">
                 シトロエン DSをベースにしたクーペです。4ドアだったDSのボディを2ドアにしてマセラティ製のV6エンジンを搭載しています。<br>
             </p>
             <p>北米仕様</p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2945">ゴールド</a><br>
+            <button class="car_item" onclick="item(17)">ゴールド</button><br>
             <h3 class="header_txt" id="car_name_xsara_wrc">クサラWRC</h3>
             <p class="car_explain">
                 クサラをベースにしたラリーカーです。長い開発期間が功を奏し、初参戦した2001年の第12戦ツール・ド・コルスで初優勝。<br>
                 2003年にはマニュファクチャラーズタイトルを獲得しました。その後3連覇し、合計で28勝しました。<br>
             </p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2840">レッド/ホワイト</a><br>
+            <button class="car_item" onclick="item(18)">レッド/ホワイト</button><br>
             <p>2006モンテカルロ(#1)</p>
             <p class="brand">CM's</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1811">KRONOS CITROEN XSARA WRC 2006 Monte Carlo</a><br>
+            <button class="car_item" onclick="item(19)">KRONOS CITROEN XSARA WRC 2006 Monte Carlo</button><br>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1817">2006 モンテカルロ</a><br>
+            <button class="car_item" onclick="item(20)">2006 モンテカルロ</button><br>
             <p>2003ウェールズ(#18)</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1823">2003 ウェールズ #18</a><br>
+            <button class="car_item" onclick="item(21)">2003 ウェールズ #18</button><br>
             <h3 class="header_txt" id="car_name_traction">トラクシオン・アヴァン</h3>
             <p class="car_explain">
                 シトロエンが第2次世界大戦前から作っていた乗用車です。
                 前輪駆動、モノコックボディといった技術の先駆者でもあり、車名はフランス語で前輪駆動を意味するとか。
             </p>
             <p class="brand">ジク</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3076">ホワイト/ブラウン</a><br>
+            <button class="car_item" onclick="item(22)">ホワイト/ブラウン</button><br>
             <p class="brand">ELIGOR</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3388">シルバー</a><br>
+            <button class="car_item" onclick="item(23)">シルバー</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
