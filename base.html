@@ -12,7 +12,7 @@
             item_w.document.getElementById("item_img").width=w * 0.8;
             item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
             urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
-            if(data[n][3] != ""){
+            if(data[n][2] != ""){
                 urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
             }
             item_w.document.getElementById("links").innerHTML=urls;
