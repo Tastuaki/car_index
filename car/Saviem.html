@@ -2,17 +2,21 @@
 <script>
     var data = [[""],["https://d17x1wu3749i2y.cloudfront.net/uploads/2022/07/02/00/03/02/7e6878e3-96ad-4d98-9780-3bb423010a53/056445acd66e7df86dfdf01f86be4659-converted.jpeg","珍しいマジョレットのカーキャリアです。多少ボロボロですが500円なら安いと思います。ギミックも全て動いているようです。","majorette/Saviem_J/trans/yellow","2514"]];
     function item(n){
-        let urls = ""
-        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no');
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
         item_w.focus();
         item_w.onload = function() {
             item_w.document.getElementById("item_img").src=data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("item_img").height=h * 0.8;
             item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
             if(data[n][2] != ""){
                 urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][2]+'">画像の保存場所</a>';
             }
             if(data[n][3] != ""){
-                urls += '&bnsp;&bnsp;&bnsp;<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][3]+'">MUUSEO</a>';
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][3]+'">MUUSEO</a>';
             }
             item_w.document.getElementById("links").innerHTML=urls;
         };
@@ -30,7 +34,7 @@
         <div id="main">
             <h3 class="header_txt" id="car_name_Saviem_J">サビエムJ</h3>
             <p class="brand">マジョレット</p>
-            <button class="car_link" onclick="item(1)">トランスポーター</a><br>
+            <button class="car_item" onclick="item(1)">トランスポーター</a><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
