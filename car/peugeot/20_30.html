@@ -1,4 +1,31 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["majorette/peugeot/205/CTI/silver_blue/f5180ca1032535d2c1810482715196cc-converted.jpeg","インクをまき散らしたような派手なデザインです。このモデルはけん引するものが付属したモデルと単体でパックされたモデルが存在しますが、どっちのものかは分かりません。裏板は3ドアハッチバックである205 GTIのものが流用されています。","1681"],
+                ["welly/Q/Peugeot/206/green/E086E024-B41A-4716-BB70-89F998979757.jpeg","ウェリーのチョロQ擬です。","1179"],
+                ["majorette/peugeot/206/wrc/2002 Wales/b9051eaf4f94ac45e6b519075abdc3b4-converted.jpeg","グリルの206からリアウイングの形状までよく出来ています。","1818"],
+                ["norev/peugeot/207/green/IMG_2852.JPEG","","3209"],
+                ["majorette/peugeot/307/green/7a36d903604f8fffe9a37989916fa1a0-converted.JPEG","何故かマジョレットwikiには307WRCしか載ってませんが、こちらは通常モデルの307です。フロントを裏から叩くとボンネットが半開きになります。開きやすくて良いです。","2468"],
+                ["majorette/peugeot/307/wrc/2004 monte/bfb723d67eb90e1cb4f0504ed7b9ec79-converted.jpeg","2004年の第1戦モンテカルロに参戦したゼッケン5番のモデルです。結果は4位でした。","1825"],
+                ["norev/peugeot/308/2gen-2/SW/red/D9D9C5F8-188F-494F-BD06-AEFE69C8ED8E.jpeg","これオープンカー？って思ったら本当にオープンカーでした。ハードトップと言ってもビックリです。","1825"],
+                ["norev/peugeot/3008/brown/IMG_9763.JPEG","リアウィンドウが少し割れています…","3072"]];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -6,7 +33,7 @@
     </head>
     <body>
         <header>
-            <h1 class="header_txt" id="main_title">プジョー 205/206/307</h1>
+            <h1 class="header_txt" id="main_title">プジョー 205/206/307/308</h1>
         </header>
         <div id="main">
             <h3 class="header_txt" id="car_name_205_cti">205 CTI</h3>
@@ -16,7 +43,7 @@
                 大きなロールバーのおかげでタルガトップに見えますが、ソフトトップです。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1681">シルバー/ホイール:ブルー</a><br>
+            <button class="car_item" onclick="item(1)">シルバー/ホイール:ブルー</button><br>
             <h3 class="header_txt" id="car_name_206">206</h3>
             <p class="car_explain">
                 プジョー 205の後継モデルとして登場しました。<br>
@@ -24,7 +51,7 @@
                 日本では大ヒットし、後継モデルのプジョー 207、208が登場した後も併売され続けました。<br>
             </p>
             <p class="brand">ウェリーQ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1179">グリーン</a><br>
+            <button class="car_item" onclick="item(2)">グリーン</button><br>
             <h3 class="header_txt" id="car_name_206wrc">206 WRC</h3>
             <p class="car_explain">
                 206をベースにしたラリーカーです。正確には当時の全長規定をクリアする為に発売された206GTがベースになります。<br>
@@ -32,26 +59,26 @@
                 その後3連覇し、日本車が席巻していた時代を終わらせました。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1818">2002 ウェールズ #2</a><br>
+            <button class="car_item" onclick="item(3)">2002 ウェールズ #2</button><br>
             <h3 class="header_txt" id="car_name_207">207</h3>
             <p class="car_explain">
                 206の後継モデルでシトロエン C3とは兄弟車になります。<br>
                 後継モデルとはいってもサイズが大きくなりました。<br>
             </p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3209">グリーン</a><br>
+            <button class="car_item" onclick="item(4)">グリーン</button><br>
             <h3 class="header_txt" id="car_name_307">307</h3>
             <p class="car_explain"></p>
             <p>ハッチバック</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2468">グリーン</a><br>
+            <button class="car_item" onclick="item(5)">グリーン</button><br>
             <h3 class="header_txt" id="car_name_307wrc">307 WRC</h3>
             <p class="car_explain">
                 307CCをベースにしたラリーカーです。クーペガブリオレという珍しいボディスタイルでした。<br>
                 しかし、トラブル続きでなかなか結果を残せず、WRCから撤退する原因になりました。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1825">2004 モンテカルロ #5</a><br>
+            <button class="car_item" onclick="item(6)">2004 モンテカルロ #5</button><br>
             <h3 class="header_txt" id="car_name_308">308</h3>
             <p class="car_explain">
                 <b>2代目</b><br>
@@ -61,8 +88,11 @@
             <p>後期型<br>
             SW(ステーションワゴン)</p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2468">レッド</a><br>
-            
+            <button class="car_item" onclick="item(7)">レッド</button><br>
+            <h3 class="header_txt" id="car_name_3008">3008</h3>
+            <p class="car_explain"></p>
+            <p class="brand">ノレブ</p>
+            <button class="car_item" onclick="item(8)">ブラウン</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　

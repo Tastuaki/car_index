@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["norev/peugeot/20cup/white/IMAG3394_1.jpg","2台セットの1台です。シリアルナンバーは0997/2000。作りはとても良く、運転席と助手席を隔てる棒？が折れないか心配になるくらいです。","623"],
+                ["norev/peugeot/20cup/black/IMAG3396_1.jpg","2台セットの1台です。シリアルナンバーは0997/2000。作りはとても良く、運転席と助手席を隔てる棒？が折れないか心配になるくらいです。","624"],
+                ["norev/peugeot/4002/IMG_9757.JPEG","すごいデザインですが、コンセプトカーならではですね。それをミニカーにしたノレブが一番よく分かりません…","3560"],
+                ["majorette/peugeot/vision_gran/IMAG3375_1.jpg","走行中のウイングを展開したモデルです。グラストップが暗くて中はちゃんと作ってあるのか分かりません。","621"],
+                ["penny_racer/racing/peugeot/Quasar/blue/8edb369ea9835118a908c4a651968bb4-converted.JPEG","海外版チョロＱことぺ二―レーサーです。車名は書かれて居ませんが、型はチョロＱなので作りのいいチープミニカーになってます。","2132"]];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -15,8 +39,15 @@
                 カーボンボディのため車重は500kg未満だとか。3輪車で2輪車のような鋭い加速を実現したそうです。<br>
             </p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/623">ホワイト</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/624">ブラック</a><br>
+            <button class="car_item" onclick="item(1)">ホワイト</button><br>
+            <button class="car_item" onclick="item(2)">ブラック</button><br>
+            <h3 class="header_txt" id="car_name_4002">4002</h3>
+            <p class="car_explain">
+                2003年に発表されたコンセプトカーです。2002年のパリモーターショーで開催された第二回プジョー デザイン コンペティションで優勝したデザインをそのままコンセプトカーにしました。<br>
+                エンジンは搭載していないため走行はできないそうです。<br>
+            </p>
+            <p class="brand">ノレブ</p>
+            <button class="car_item" onclick="item(3)">ベージュ/ブラック</button><br>
             <h3 class="header_txt" id="car_name_vision_gran_turismo">ヴィジョングランツーリスモ</h3>
             <p class="car_explain">
                 奇抜なコンセプトカーを作ってきたプジョーがレースゲーム「グランツーリスモ」内で作ったコンセプトカーです。初登場はGT6。<br>
@@ -25,14 +56,14 @@
                 ウイングは可変式で普段は格納されています。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/621">レッド</a><br>
+            <button class="car_item" onclick="item(4)">レッド</button><br>
             <h3 class="header_txt" id="car_name_quasar">クアザール</h3>
             <p class="car_explain">
                 1984年のパリモータショーで発表されたコンセプトカーです。<br>
                 エンジンむき出しのぶっ飛んだデザインに、デジタルメーターやカーナビのようなシステムを搭載した未来感溢れる車になっています。<br>
             </p>
             <p class="brand">ぺ二―レーサー</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2132">ブルー</a><br>
+            <button class="car_item" onclick="item(5)">ブルー</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
