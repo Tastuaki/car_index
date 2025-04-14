@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["yatming/road/opel/GTCconcept/a713668306474f7837328d672ff8a5da-converted.JPEG","裏板に書かれたRSがよく分かりません。ヤトミン社製とあるからには作ったのはチープミニカーを作っていたヤトミンなのでしょうが、このハイクオリティ(?)モデルのブランド名でしょうか…？","2459"],
+                ["matchbox/opel/astra/6gen/2024 MBX Metro/yellow/IMG_9749.JPEG","日本に再度参入予定だったオペルですが、無期限延期になってからウン年、ミニカーの方が先に輸入されてしまいました。","3563"],
+                ["majorette/opel/adam/green/ed52d9497ba7e33328fa2c8a93464b8c-converted.jpeg","エマージェンシー コレクションの1台です。日本では販売されていないので馴染みのないせいか、売れ残ることが多いようです。そもそもオペルを知ってる人が少ないかもしれませんが…","1530"],
+                ["herpa/maag/opel/omega/A/green/BE88D5E6-4FD2-431E-947E-82C176F59BB1.jpeg","このミニカーブランドからするとこのモデルは軍事車両のようです。","910"],
+                ["matchbox/opel/kadett/4gen/2022 MBX Highway/IMG_E8899.JPG","発売当初はジェミニに関わりのある車として若干話題になったような気もしますが、人気はイマイチな気がします。あとこのカラー特有の問題でフロントフェンダーの周りに黄色の塗装が塗られていない個体が多くみられました。","3376"],
+                ["matchbox/opel/kadett/4gen/2023 MBX Highway/IMG_9743.JPEG","","3377"],
+                ["matchbox/opel/kadett/4gen/2024 MBX Highway/IMG_9746.JPEG","","3378"],
+                ["MINICHAMPS/microchamps/opel/calibra/HОСКЕННЕIM, 19. SEPTEMBER 1993(#5)/IMG_8636.JPEG","カリブラのDTMというとGTウイングのイメージですが、この頃は大型のトランクスポイラーだったんですね。 ","3373"],
+                ["MINICHAMPS/opel/calibra/1994 PRESENTATION/IMG_E1796.JPG","型自体は1994年のものになっているようです。台座は溶けてタイヤの跡が付いていました…","3374"],
+                ["herpa/opel/calibra V6/1995 DTM #10/IMG_8634.JPEG","","3371"],
+                ["herpa/opel/calibra V6/1995 DTM #20/IMG_8633.JPEG","","3372"],
+                ["siku/opel/frontera/red/IMG_0497.JPEG","モデルとしては車名やブランドが多くありますが、ミニカーになったのはこのモデルだけではないでしょうか…","3375"]];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -15,14 +46,21 @@
                 後に3代目アストラの派生車として、アストラGTCという名前で発売されました。<br>
             </p>
             <p class="brand">ガチャ(1/72 ROAD SIGNATURE シリーズ PART 3)</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2459">Metallic Yellow</a><br>
+            <button class="car_item" onclick="item(1)">Metallic Yellow</button><br>
+            <h3 class="header_txt" id="car_name_astra">アストラ</h3>
+            <p class="car_explain">
+                <b>6代目</b>
+                EMP2プラットフォームを使って作られたコンパクトカーです。モデルとしては初のPHEVが登場しました。<br>
+            </p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(2)">2024 MBX Metro(イエロー)</button><br>
             <h3 class="header_txt" id="car_name_adam">アダム</h3>
             <p class="car_explain">
                 オペル コルサよりも小さな個性的なコンパクトカーです。コルサのプラットフォームを縮小して作られました。<br>
                 ボディカラーや内装はもちろん、トリムやルーフ等も好きなカラーに変更することができ、その組み合わせの数は82000種類以上だとか。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1530">グリーン(ホイール:8本スポーク)</a><br>
+            <button class="car_item" onclick="item(3)">グリーン(ホイール:8本スポーク)</button><br>
             <h3 class="header_txt" id="car_name_omega">オメガ</h3>
             <p class="car_explain">
                 <b>初代</b>(オメガA)<br>
@@ -31,7 +69,7 @@
                 日本仕様はドアミラーが格納できなかったり、ボディの関係でオーバーヒートしやすかったりと難点が多かったようです。<br>
             </p>
             <p class="brand">maag</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/910">グリーン</a><br>
+            <button class="car_item" onclick="item(4)">グリーン</button><br>
             <h3 class="header_txt" id="car_name_kadett">カデット</h3>
             <p class="car_explain">
                 <b>4代目</b>(カデットC)<br>
@@ -39,30 +77,30 @@
                 日本では初代いすゞ ジェミニが兄弟車になります。<br>
             </p>
             <p class="brand">マッチボックス</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3376">ホワイト/イエロー</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3377">オレンジ</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3378">グリーン</a><br>
+            <button class="car_item" onclick="item(5)">ホワイト/イエロー</button><br>
+            <button class="car_item" onclick="item(6)">オレンジ</button><br>
+            <button class="car_item" onclick="item(7)">グリーン</button><br>
             <h3 class="header_txt" id="car_name_calibra_V6">カリブラ</h3>
             <p class="car_explain">
                 カリブラをベースにしたツーリングカー選手権参戦車です。1995年のドイツツーリングカー選手権に参戦したモデルです。
             </p>
             <p>1993 ドイツツーリングカー選手権</p>
             <p class="brand">マイクロチャンプス</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3373">HОСКЕННЕIM, 19. SEPTEMBER 1993(#5)</a><br>
+            <button class="car_item" onclick="item(8)">HОСКЕННЕIM, 19. SEPTEMBER 1993(#5)</button><br>
             <p>1994 ドイツツーリングカー選手権</p>
             <p class="brand">ミニチャンプス</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3374">1994 PRESENTATION</a><br>
+            <button class="car_item" onclick="item(9)">1994 PRESENTATION</button><br>
             <p>1995 ドイツツーリングカー選手権</p>
             <p class="brand">ヘルパ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3371">Joest Team(#10)</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3372">Joest Team(#20)</a><br>
+            <button class="car_item" onclick="item(10)">Joest Team(#10)</button><br>
+            <button class="car_item" onclick="item(11)">Joest Team(#20)</button><br>
             <h3 class="header_txt" id="car_name_frontera">フロンテラ</h3>
             <p class="car_explain">
                 いすゞ ミューまたはミューウィザードのOEMモデルで、オペルのSUVです。<br>
                 ミューまたはミューウィザードには他のメーカーにもOEMがいるため、この代だけエンブレムを変えただけの同じ車がたくさん存在します。<br>
             </p>
             <p class="brand">ジク</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3375">レッド</a><br>
+            <button class="car_item" onclick="item(12)">レッド</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　

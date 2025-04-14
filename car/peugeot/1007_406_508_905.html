@@ -1,4 +1,30 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["dealer/peugeot/1007/e5b39433195388e669239480d5e34123-converted.JPEG","ディーラー頒布のプルバックカーです。試乗したら貰えたようです。デフォルメといえど全高が低すぎるような…ホイールはよく出来ています。","2071"],
+                ["norev/peugeot/404/1961 Le Tour/9b48e52edbe0f5e36eb03f9ac9ed582e-converted.jpeg","1961年のツール・ド・フランスのレースディレクターとのことですが、役割がよく分かりませんでした。Le Parisien(ル・パリジャン)はフランスの日刊新聞で、L'EQUIPE(レキップ)はスポーツ新聞の名前のようです。(ツール・ド・フランスのスポンサーが両新聞の発行会社のため、宣伝として印刷されているようです) DIRECTEUR DE LA COURSEはレース監督という意味だそうです。","2943"],
+                ["majorette/peugeot/406/orange/1F32E34F-C498-4F83-B6D2-861A993A54F4.jpeg","レーシングモデルになっています。サンルーフが開くギミックがあります。BOLIDSを調べてみましたが、よく分かりませんでした。","916"],
+                ["majorette/peugeot/508/1gen/sw/gray/d3509cf03c9e4d4f24335d4f09242309-converted.JPEG","ユーロ ホットカーズセレクションの1台です。","1986"],
+                ["majorette/peugeot/508/2gen/sw/white/722c03d1c5dc470a6f68e7fbf1525f4b-converted.JPEG","フロントの造形はなんか違う気もしますが、トランクは素晴らしいくらいチリが合っています。","2235"],
+                ["choroQ/Peugeot/905/blue/IMAG2155_1.jpg","1990年代の「ル・マンの伝説」の1台にマツダ787Bと共に選出されたそうですが、全く知りませんでした笑","131"],
+                ["majorette/peugeot/4007/IMG_9768.JPEG","リアもちゃんとプジョーになっています。","3565"]];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -12,13 +38,13 @@
             <h3 class="header_txt" id="car_name_1007">1007</h3>
             <p class="car_explain"></p>
             <p class="brand">ディーラー頒布</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2071">ブラック</a><br>
+            <button class="car_item" onclick="item(1)">ブラック</button><br>
             <h3 class="header_txt" id="car_name_404">404</h3>
             <p class="car_explain">
                 高耐久で長持ち。ピニンファリーナデザインの美しいスタイルをもった車です。<br>
             </p>
             <p class="brand">ノレブ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2943">1961 ツール・ド・フランス レースディレクター</a><br>
+            <button class="car_item" onclick="item(2)">1961 ツール・ド・フランス レースディレクター</button><br>
             <h3 class="header_txt" id="car_name_406">406</h3>
             <p class="car_explain">
                 プジョー 405の後継モデルにあたります。<br>
@@ -26,7 +52,13 @@
                 ちなみに映画「TAXi」で主人公が乗ったのもこの車のセダンモデルです。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/916">230series(オレンジ)</a><br>
+            <button class="car_item" onclick="item(3)">230series(オレンジ)</button><br>
+            <h3 class="header_txt" id="car_name_4007">4007</h3>
+            <p class="car_explain">
+                プジョー初のSUVで、三菱 アウトランダーのOEMモデルです。フロントはプジョーのデザインにあわせて変更されていますが、リアはほとんど変わりません。<br>
+            </p>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(7)">シルバー</button><br>
             <h3 class="header_txt" id="car_name_508">508</h3>
             <p class="car_explain">
                 <b>初代</b><br>
@@ -35,18 +67,18 @@
             <p>前期<br>
             SW</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1986">グレー</a><br>
+            <button class="car_item" onclick="item(4)">グレー</button><br>
             <p class="car_explain">
                 <b>2代目</b><br>
                 407の後継モデルにあたる中型セダンおよびステーションワゴンです。2代目シトロエン C5とはプラットフォームやエンジンを共有化している姉妹車になります。<br>
             </p>
             <p>SW</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2235">ホワイト</a><br>
+            <button class="car_item" onclick="item(5)">ホワイト</button><br>
             <h3 class="header_txt" id="car_name_905">905</h3>
             <p class="car_explain"></p>
             <p class="brand">チョロＱ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/131">ブルー</a><br>
+            <button class="car_item" onclick="item(6)">ブルー</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <script>
-    var data = [[""],["majorette/peugeot/205/CTI/silver_blue/f5180ca1032535d2c1810482715196cc-converted.jpeg","インクをまき散らしたような派手なデザインです。このモデルはけん引するものが付属したモデルと単体でパックされたモデルが存在しますが、どっちのものかは分かりません。裏板は3ドアハッチバックである205 GTIのものが流用されています。","1681"],
+    var data = [[""],
+                ["majorette/peugeot/205/CTI/silver_blue/f5180ca1032535d2c1810482715196cc-converted.jpeg","インクをまき散らしたような派手なデザインです。このモデルはけん引するものが付属したモデルと単体でパックされたモデルが存在しますが、どっちのものかは分かりません。裏板は3ドアハッチバックである205 GTIのものが流用されています。","1681"],
                 ["welly/Q/Peugeot/206/green/E086E024-B41A-4716-BB70-89F998979757.jpeg","ウェリーのチョロQ擬です。","1179"],
                 ["majorette/peugeot/206/wrc/2002 Wales/b9051eaf4f94ac45e6b519075abdc3b4-converted.jpeg","グリルの206からリアウイングの形状までよく出来ています。","1818"],
                 ["norev/peugeot/207/green/IMG_2852.JPEG","","3209"],
                 ["majorette/peugeot/307/green/7a36d903604f8fffe9a37989916fa1a0-converted.JPEG","何故かマジョレットwikiには307WRCしか載ってませんが、こちらは通常モデルの307です。フロントを裏から叩くとボンネットが半開きになります。開きやすくて良いです。","2468"],
                 ["majorette/peugeot/307/wrc/2004 monte/bfb723d67eb90e1cb4f0504ed7b9ec79-converted.jpeg","2004年の第1戦モンテカルロに参戦したゼッケン5番のモデルです。結果は4位でした。","1825"],
                 ["norev/peugeot/308/2gen-2/SW/red/D9D9C5F8-188F-494F-BD06-AEFE69C8ED8E.jpeg","これオープンカー？って思ったら本当にオープンカーでした。ハードトップと言ってもビックリです。","1825"],
-                ["norev/peugeot/3008/brown/IMG_9763.JPEG","リアウィンドウが少し割れています…","3072"]];
+                ["norev/peugeot/3008/brown/IMG_9763.JPEG","リアウィンドウが少し割れています…","3072"]
+                ["majorette/peugeot/205/CTI/blue/IMG_9771.JPEG","なんだか分かりませんがすごくテニスを推されています。","3566"],
+            ];
     function item(n){
         let w = document.body.offsetWidth * 0.8;
         let h = document.body.offsetHeight * 0.8;
@@ -44,6 +47,7 @@
             </p>
             <p class="brand">マジョレット</p>
             <button class="car_item" onclick="item(1)">シルバー/ホイール:ブルー</button><br>
+            <button class="car_item" onclick="item(9)">ブルー</button><br>
             <h3 class="header_txt" id="car_name_206">206</h3>
             <p class="car_explain">
                 プジョー 205の後継モデルとして登場しました。<br>
@@ -92,7 +96,7 @@
             <h3 class="header_txt" id="car_name_3008">3008</h3>
             <p class="car_explain"></p>
             <p class="brand">ノレブ</p>
-            <button class="car_item" onclick="item(8)">ブラウン</button><br>
+            <button class="car_item" onclick="item(8)">ブラウン</button><br><h3 class="header_txt" id="car_name_3008">3008</h3>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
