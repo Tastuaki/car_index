@@ -1,4 +1,44 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["majorette/renault/5/turbo/blue/7fe5410c93665d31115da683911bac7c-converted.JPEG","リアゲートが開閉しますが、残念ながらエンジンを見ることはできません。リアライトが真っ黒なのはなにかあるのでしょうか… ","2246"],
+                ["aoshima/renault/fw16/No.0_san_marino/283EFC30-1091-4E75-B641-26E097B0BDDB.jpeg","アイルトン・セナが最後に走ったマシンですが、このモデルの0号車にはデイモン・ヒルが乗っていました。","3086"],
+                ["majorette/renault/kangoo_express/1gen_1/silver/EE44B3E8-3BF1-4875-B768-787E615C351F.jpeg","車名などの明記はありませんが、サイドのウィンドウが埋められていることから商用バンをモデル化したと思われます。","3073"],
+                ["majorette/renault/kangoo_express/2gen-1/majorette/421F67D1-22B4-4963-BA15-E1BC20FE2F5B.jpeg","ユーロ ホットカーズ セレクションの1台です。","654"],
+                ["majorette/renault/kangoo_express/2gen-1/DHL/4cff4b1ecc84116aa09562b96c38a45f-converted.jpeg","シティコレクションの1台です。<br>カラーリングは2019年にドイツの物流会社、DHLが5台導入したカングー ZEですが、マジョレットでは前期型通常モデルをモデル化しているため実車とフロントデザインが異なります。","1925"],
+                ["matchbox/reanault/kangoo/express/2gen-2/2020 MBX City/b6d8a6128e6701f1568c9637c6d307bf-converted.jpeg","色々と英語が印刷されているので翻訳してみました。<br>AGAVE ACRES:アガベ(リュウゼツラン属の学名)の土地<br>MONTECITO HEIGHTS,CA:モンテシト ハイツ,カリフォルニア州<br>Bringing To Life Your Drought Tolerant Horticultural Dreams:干ばつに強い園芸の夢を実現<br>とあるので観賞用のリュウゼツランを生産する畑…ということでしょうか？","1609"],
+                ["matchbox/reanault/kangoo/express/2gen-2/2021 MBX Metro/ba0d493edec3f158bc71ef9d8c825d66-converted.JPEG","今回は英語ではなくドイツ語が書かれています。<br>schlosser:錠前屋<br>sicherheitsdienste:セキュリティサービス<br>鍵の絵の通り鍵屋さんのようです。","2251"],
+                ["ELIGOR/renault/clio/3gen/dealer/46575511ee6aa95653376ee6e8141333-converted.jpeg","","2492"],
+                ["maisto/renault/clio/sport/phase 1/blue/6D56401B-9F78-4F85-A84D-9C9D7F7E5EAA.jpeg","","652"],
+                ["majorette/renault/megane/3gen/RStrophy/yellow_black/IMAG3376_1.jpg","","628"],
+                ["majorette/renault/megane/4gen/orange/IMG_4773.jpg","ヴィンテージコレクション2の1台です。","1161"],
+                ["majorette/renault/19/Phase2/cabriolet/silver/IMG_9778.JPEG","","3567"],
+                ["matchbox/reanault/megane/4gen/2024 MBX Metro/IMG_9781.JPEG","マッチボックスではEテックやエレクトリックといった表記はありませんが、<br>ボディスタイルから間違いなくメガーヌEテックだと思います。","3568"]
+                ["majorette/renault/megane/4gen/white/IMG_9785.JPEG","500台限定生産のトロフィーRです。",""],
+                ["norev/renault/megane/3gen/RStrophy/black_orenge/IMG_9790.JPEG","2009年？のメガーヌ トロフィーのワンメイクレースに参戦したTDSレーシングのモデルに近いデザインになっています。","3569"],
+                ["HW/renault/R.S. 01/2023 HW TURBO/IMG_9795.JPEG","このモデルからキャストの名前が R.S. から R.S. 01に変更されたようです。","3570"],
+                ["majorette/renault/clio/4gen/cup/IMG_9800.JPEG","",""],
+                ["","グッドイヤーカラーです。","3571"],
+                ["","","3572"],
+                ["","やたら大きいルノーのロゴが貼られていますが、後で貼ったようです。<br>サーフボードが欠品しています。","3573"]
+    ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -9,16 +49,38 @@
             <h1 class="header_txt" id="main_title">ルノー</h1>
         </header>
         <div id="main">
+            <h3 class="header_txt" id="car_name_R.S.01">R.S. 01</h3>
+            <p class="car_explain">
+                ルノースポールのワンメイクレース、ルノースポールトロフィー専用のレーシングカーとして開発されました。<br>
+                しかし、登場してから2年後にこのワンメイクレースは終了したため、その後はGT3クラスのレーシングカーとなりました。<br>
+            </p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(16)">2023 HW TURBO</button><br>
             <h3 class="header_txt" id="car_name_5turbo">5ターボ</h3>
             <p class="car_explain">
                 初代ルノー 5をベースにグループBに参戦するためのホモロゲーションモデルとして作製されました。エンジンを後席部に移し、リアミッドシップになりました。リアフェンダーには巨大なエアインテークが付けられ、ベースモデルとは全く違う車になっていました。<br>
             </p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2246">ブルー</a><br>
+            <button class="car_item" onclick="item(1)">ブルー</button><br>
+            <h3 class="header_txt" id="car_name_16">16</h3>
+            <p class="car_explain">
+                ルノー 9と11の後継モデルで前モデルにもあったハッチバックとセダンに加えてオープンモデルのガブリオレが追加されました。<br>
+            </p>
+            <p>フェーズ2<br>
+            ガブリオレ</p>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(12)">シルバー</button><br>
             <h3 class="header_txt" id="car_name_fw16">FW16</h3>
             <p class="car_explain"></p>
             <p class="brand">F1GPウィリアムズ ミニカーコレクション</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3086">FW16(No.0) サンマリノGP</a><br>
+            <button class="car_item" onclick="item(2)">FW16(No.0) サンマリノGP</button><br>
+            <h3 class="header_txt" id="car_name_jp4">JP4</h3>
+            <p class="car_explain">
+                ルノー 4をベースにしたRV車です。オープンモデルに改造されています。<br>
+                カーシステムというところが作った派生車らしいのですが、詳細はよく分かりません。<br>
+            </p>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(20)">レッド</button><br>
             <h3 class="header_txt" id="car_name_kangoo_express">カングー エクスプレス</h3>
             <p class="car_explain">
                 <b>初代</b><br>
@@ -26,7 +88,7 @@
             </p>
             <p>前期型</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3073">シルバー</a><br>
+            <button class="car_item" onclick="item(3)">シルバー</button><br>
             <p class="car_explain">
                 <b>2代目</b><br>
                 カングーII(2代目カングー)をベースにした商用バンです。<br>
@@ -34,21 +96,29 @@
             </p>
             <p>前期型</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/654">マジョレット</a><br>
+            <button class="car_item" onclick="item(4)">マジョレット</button><br>
             <p>DHL</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1925">DHL</a><br>
+            <button class="car_item" onclick="item(5)">DHL</button><br>
             <p>後期型</p>
             <p class="brand">マッチボックス</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1609">2020 MBX City(ホワイト)</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2251">2021 MBX Metro(オレンジ)</a><br>
+            <button class="car_item" onclick="item(6)">2020 MBX City(ホワイト)</button><br>
+            <button class="car_item" onclick="item(7)">2021 MBX Metro(オレンジ)</button><br>
+            <button class="car_item" onclick="item(18)">2023 MBX Metro(ブルー)</button><br>
             <h3 class="header_txt" id="car_name_clio">クリオ</h3>
             <p class="car_explain">
                 <b>3代目</b><br>
             </p>
             <p>前期型</p>
             <p class="brand">ディーラー頒布</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2492">レッド</a><br>
+            <button class="car_item" onclick="item(8)">レッド</button><br>
+            <p class="car_explain">
+                <b>4代目</b><br>
+                この代から3ドアモデルが廃止され、全て5ドアモデルとなりました。日本では先代と変わらずルーテシアの名前で販売されました。<br>
+            </p>
+            <p>クリオカップ</p>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(17)">イエロー</button><br>
             <h3 class="header_txt" id="car_name_clio_renault_sport">クリオ ルノー スポール</h3>
             <p class="car_explain">
                 <b>初代</b><br>
@@ -57,7 +127,7 @@
             </p>
             <p>フェーズ1</p>
             <p class="brand">マイスト</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/652">ブルー</a><br>
+            <button class="car_item" onclick="item(9)">ブルー</button><br>
             <h3 class="header_txt" id="car_name_megane">メガーヌ</h3>
             <p class="car_explain">
                 <b>3代目</b><br>
@@ -65,14 +135,33 @@
             </p>
             <p>R.S.トロフィー</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/628">イエロー</a><br>
+            <button class="car_item" onclick="item(10)">イエロー</button><br>
+            <p class="brand">ノレブ</p>
+            <button class="car_item" onclick="item(15)">ブラック/オレンジ/シルバー</button><br>
             <p class="car_explain">
                 <b>4代目</b><br>
                 日産とルノーが共同開発したプラットフォームを使って作られました。<br>
                 4ドアセダンが復活し、3ドアハッチバック及びオープンモデルが廃止されました。<br>
             </p>
+            <p>R.S.トロフィー</p>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1161">オレンジ</a><br>
+            <button class="car_item" onclick="item(11)">オレンジ</button><br>
+            <p>R.S.トロフィーR</p>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(14)">ホワイト</button><br>
+            <h3 class="header_txt" id="car_name_meganeE">メガーヌ Eテック エレクトリック</h3>
+            <p class="car_explain">
+                メガーヌ初の電気自動車です。といっても日産 アリアのプラットフォームを使って作られたため、通常モデルのメガーヌとはほとんど関連がありません。<br>
+            </p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(13)">2024 MBX Metro(ブラック)</button><br>
+            <h3 class="header_txt" id="car_name_twizy">トゥイージー</h3>
+            <p class="car_explain">
+                2シーターの小型電気自動車です。日産 ニューモビリティコンセプトとは姉妹車にあたります。<br>
+                45モデルと80モデルの2つがあり、それぞれ最高速度から名前を取ったようです。<br>
+            </p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(19)">2023 MBX Metro(ブルー)</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
