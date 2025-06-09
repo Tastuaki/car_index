@@ -69,7 +69,7 @@ def tomi_data(all):
                 car[j] += indata(data)
         elif "CarPrice" in data:
             datetx = indata(data[data.find("年")+1:data.find("発売予定")])
-            mon,day = datetx.split("月")
+            mon,day = datetx.split("月",1)
             if fsday == False:
                 bday = 1
                 d = datetime.date(int(data[data.find(">")+1:data.find("年")]),int(mon),bday).weekday()
