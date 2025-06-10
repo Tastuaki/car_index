@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<script>
+    var data = [[""],["diapet/rover/mini/red/IMG_9838.JPEG","フォグランプが付いています。","id"]
+    ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
+<html lang="ja" id="main_html">
+    <head>
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
+        <link rel="stylesheet" href="https://tastuaki.github.io/car_index/car_index.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="header_txt" id="main_title">ローバー</h1>
+        </header>
+        <div id="main">
+            <h3 class="header_txt" id="car_name_rover-mini">ミニ</h3>
+            <p class="car_explain">
+                1968年にBMCと合併したことで生まれたのがローバーミニです。基本的にはモーリスミニと変わりません。<br>
+            </p>
+            <p></p>
+            <p class="brand">ダイヤペット</p>
+            <button class="car_item" onclick="item(1)">レッド</button><br>
+            <br>
+            <p><a href="car/Morris.html#car_name_morris-mini">モーリスミニ</a></p>
+            <p><a href="car/Innocenti.html#car_name_innocenti-mini">イノチェンティ ミニクーパー</a></p>
+        </div>
+        <footer>
+            <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
+            <a class="footer_link" href="https://tastuaki.github.io/car_index/brand/new.html">新製品カレンダー</a>
+        </footer>
+  </body>
+</html>
