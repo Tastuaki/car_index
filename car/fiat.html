@@ -1,4 +1,48 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["exceed_model/fiat/500/red/c489fc8017688ba2607aa3a196369576-converted.jpeg","今回はギミックもシールもありません。コスト削減のためか下から見ると車内が筒抜けに…<br>唯一良くなった？のはタイヤが回るようになったところでしょうか…","1708"],
+                ["majorette/fiat/500/3gen/white/E9AB2652-F1DE-40CC-A773-08EF2D9580B4.jpeg","懐かしいパッケージのマジョレットです。この縦向きブリスターもすっかり見なくなりましたね。","3090"],
+                ["HW/fiat/500/2018 Daredevils/silver/928989f942af4953253e1a633bcadc76-converted.jpeg","スキーイベント「WROOOM」で開催された氷上ワンメイクレース(WROOOMチャレンジ)参戦車のようなカラーリングになっています。","1313"],
+                ["tomica/fiat/500e/blue/5954e186b4b7fa2479ddb72596769ca9-converted.JPEG","あまり人気はイマイチだった気がしますが、僕は好きです。なによりかわいいです。","2439"],
+                ["MONDO_MOTORS/fiat/500C/white/8cbfc4503a888283173c2adb56906623-converted.jpeg","","1651"],
+                ["matchbox/fiat/500 turbo/2023 MBX Metro/IMG_9863.JPEG","",""],
+                ["matchbox/fiat/500 turbo/2024 MBX Metro/IMG_9859.JPEG","",""],
+                ["matchbox/fiat/500 turbo/2024 Autobahn Express V/IMG_9870.JPEG","5台パックの1台です。",""],
+                ["HW/fiat/500/e/2023 HW Green Speed/red/IMG_9871.JPEG","",""],
+                ["HW/fiat/500/e/2024 Compact Kings/blue/IMG_9875.JPEG","",""],
+                ["HW/fiat/500/e/2024 Compact Kings/glay/IMG_9880.JPEG","",""],
+                ["majorette/fiat/500/e/open/yellow/IMG_9889.JPEG","シャーシではICONと表記がありますが、どうみてもOPENです。",""],
+                ["majorette/fiat/500/e/open/green/IMG_9885.JPEG","シャーシではICONと表記がありますが、どうみてもOPENです。",""]
+                ["edocar/fiat/500/coca-cola/green/IMG_9849.JPEG","コカ・コーラカラーです。",""],
+                ["edocar/fiat/500/coca-cola/red/IMG_9853.JPEG","コカ・コーラカラーです。",""]
+                ["matchbox/fiat/500 turbo/2021 MBX Metro/IMG_E6053.JPG","",""],
+                ["matchbox/fiat/500 turbo/2022 MBX Metro/IMG_E8903.JPG","",""],
+                ["norev/fiat/500/2gen/red/IMG_E8061.JPG","",""],
+                ["HW/fiat/500/Modificado/2024 Compact Kings/normal/IMG_9857.JPEG","500Fをベースにレーシングカーっぽくしたモデルだそうです。<br>モチーフになった実車は500Dがベースになっていたとか…",""],
+                ["HW/fiat/500/Modificado/2024 Boulevard/IMG_9858.JPEG","",""],
+                ["kinsmart/3inch/fiat/500/2gen/white/IMG_E8224.JPG","",""],
+                ["HW/fiat/131 abarth/2023 Modern Classics/IMG_9892.JPEG","",""],
+                ["HW/fiat/131 abarth/2024 Italian Rally Car Culture 2-Pack/IMG_9904.JPEG","",""],
+                ["kyosyo/fiat/131 rally/#10/IMG_9896.JPEG","フィアット＆ランチア ミニカーコレクションの1台です。<br>以下同封のカードの説明文です。<br>ランチア・ストラトスに代わるフィアット・グループのラリーマシンとして1977年にデビューした131アバルト・ラリー。131の2ドアセダンをベースに、アバルトによるチューニングが施され、エンジンは140psを発生する2リッターDOHCを搭載する。'77、'78、'80年にはWRCメイクス・タイトルを獲得。",""]                
+            ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -9,32 +53,78 @@
             <h1 class="header_txt" id="main_title">フィアット</h1>
         </header>
         <div id="main">
+            <h3 class="header_txt" id="car_name_131">131</h3>
+            <p class="car_explain">
+                フィアット 124の後継モデルです。124にあったクーペとスパイダー以外のボディタイプは継続して生産され、2ドアセダンが追加されました。<br>
+                4ドアはミラフィオーリ、2ドアはレーシングのサブネームが付けられ、エンジン排気量の大きいモデルは131S(スーパー)と名付けられました。<br>
+            </p>
+            <p>131 アバルト</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(22)">2023 Modern Classics</button><br>
+            <button class="car_item" onclick="item(23)"></button><br>
+            <h3 class="header_txt" id="car_name_131_rally">131</h3>
+            <p class="car_explain">
+                フィアット 131 アバルトをベースにしたラリーカーです。1977～1978年、1980年にワールドチャンピオンになりました。<br>
+            </p>
+            <p>1980 モンテカルロ</p>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(24)">#10</button><br>
             <h3 class="header_txt" id="car_name_500">500(チンクエチェント)</h3>
+            <p class="car_explain">
+                <b>2代目</b><br>
+                一番有名なモデルです。通称チンクエチェントは主にこのモデルのことを指す場合も多いようです。<br>
+            </p>
+            <p class="brand">EDOCAR</p>
+            <button class="car_item" onclick="item(14)">グリーン</button><br>
+            <button class="car_item" onclick="item(15)">レッド</button><br>
+            <p class="brand">キンスマート</p>
+            <button class="car_item" onclick="item(21)">ホワイト</button><br>
+            <p>500F</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(19)">2024 Compact Kings(イエロー)</button><br>
+            <button class="car_item" onclick="item(20)">2024 Boulevard(グリーン)</button><br>
             <p class="car_explain">
                 <b>3代目</b><br>
                 先代モデルをイメージさせつつ全体的に丸いデザインになりました。<br>
                 このサイズですが、先代同様一応4人乗りです。駆動方式はRRからFFに変わりました。<br>
             </p>
             <p class="brand">EXCEED MODEL</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1708">パソドブレレッド/ホイール:ブラック</a><br>
+            <button class="car_item" onclick="item(1)">パソドブレレッド/ホイール:ブラック</button><br>
+            <p class="brand">ノレブ</p>
+            <button class="car_item" onclick="item(18)">レッド</button><br>
             <p class="brand">マジョレット</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3090">ホワイト</a><br>
+            <button class="car_item" onclick="item(2)">ホワイト</button><br>
+            <p>ターボ</p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(16)">2021 MBX Metro(レッド)</button><br>
+            <button class="car_item" onclick="item(17)">2021 MBX Metro(ブルー)</button><br>
+            <button class="car_item" onclick="item(6)">2023 MBX Metro(ブラック)</button><br>
+            <button class="car_item" onclick="item(7)">2024 MBX Metro(オレンジ)</button><br>
+            <button class="car_item" onclick="item(8)">2024 Autobahn Express V(グリーン)</button><br>
             <p>WOOORMチャレンジ</p>
             <p class="brand">ホットウィール</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1313">2018 Daredevils(シルバー)</a><br>
+            <button class="car_item" onclick="item(3)">2018 Daredevils(シルバー)</button><br>
             <h3 class="header_txt" id="car_name_500e">500e</h3>
             <p class="car_explain">
                 3代目フィアット 500をベースにした電気自動車です。デザインは近未来的なものになりました。通常モデルではオープンモデルが500Cとして別の車になっていますが、500eのオープンモデルは500e OPENとして一つのグレードになっています。通常モデルの2倍近い価格になっていますが、売れるのでしょうか…<br>
             </p>
             <p class="brand">トミカ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2439">初回特別仕様(グリーン)</a><br>
+            <button class="car_item" onclick="item(4)">初回特別仕様(ブルー)</button><br>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(9)">2023 MBX Metro</button><br>
+            <button class="car_item" onclick="item(10)">2024 MBX Metro</button><br>
+            <button class="car_item" onclick="item(11)">2024 Autobahn Express V</button><br>
+            <p>OPEN</p>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(12)">イエロー</button><br>
+            <button class="car_item" onclick="item(13)">グリーン</button><br>
             <h3 class="header_txt" id="car_name_500c">500C</h3>
             <p class="car_explain">
                 3代目フィアット 500のオープンモデルです。<br>
                 2代目のオープンモデルと同じくキャンバストップになっていますが、先代よりも開口部が大きくなっており、電動式になっています。<br>
             </p>
             <p class="brand">ディーラー頒布</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1651">ホワイト</a><br>
+            <button class="car_item" onclick="item(5)">ホワイト</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
