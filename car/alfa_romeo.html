@@ -1,4 +1,32 @@
 <!DOCTYPE html>
+
+<script>
+var data = [[""],["bburago/43/alfa/stelvio/red/IMG_0372.JPEG","",""],
+                ["HW/alfa/8c_competizione/2022 Factory Fresh/red/IMG_E8307.JPG","",""],
+                ["matchbox/alfa/giulia/2gen/2021 MBX City/IMG_E8890.JPG","",""],
+                ["matchbox/alfa/giulia/2gen/2022 MBX Metro/IMG_E8892.JPG","",""],
+                ["HW/alfa/155_V6_Ti/2022 Boulevard/IMG_9118.JPEG","",""],
+                ["HW/alfa/33_stradale/2022 Exotic Envy/IMG_E9504.JPG","",""],
+                ["kyosyo/alfa/33_stradale/yellow/IMG_E6502.JPG","",""]
+            ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -9,6 +37,16 @@
             <h1 class="header_txt" id="main_title">アルファロメオ</h1>
         </header>
         <div id="main">
+            <h3 class="header_txt" id="car_name_155_v6">155 V6 TI</h3>
+            <p class="car_explain">
+            </p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(5)">2022 Boulevard(レッド)</button><br>
+            <h3 class="header_txt" id="car_name_8c_comp">8C コンペティオ―ネ</h3>
+            <p class="car_explain">
+            </p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(2)">2022 Factory Fresh(レッド)</button><br>
             <h3 class="header_txt" id="car_name_8c_spider">8C スパイダー</h3>
             <p class="car_explain">
                 アルファロメオ 8Cコンペティツィオーネのオープンモデルで、ベースモデル(クーペ)と同じく500台限定で生産されました。公式では最高速度はクーペより少し遅い290km/hとしています。<br>
@@ -28,6 +66,8 @@
             </p>
             <p class="brand">マッチボックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1973">2020 MBX City(レッド)</a><br>
+            <button class="car_item" onclick="item(3)">2021 MBX City(ホワイト)</button><br>
+            <button class="car_item" onclick="item(4)">2022 MBX Metro(ブルー)</button><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2256">2021 MBX Metro(ホワイト)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2261">2021 collectors(グレー)</a><br>
             <p class="brand">マジョレット</p>
@@ -38,6 +78,12 @@
             </p>
             <p class="brand">マジョレット</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/337">レッド</a><br>
+            <h3 class="header_txt" id="car_name_stelvio">ステルヴィオ</h3>
+            <p class="car_explain">
+                <br>
+            </p>
+            <p class="brand">ブラーゴ</p>
+            <button class="car_item" onclick="item(1)">レッド</button><br>
             <h3 class="header_txt" id="car_name_33_stradale">ティ―ポ33/4 ストラダーレ</h3>
             <p class="car_explain">
                 1967年から翌年の1968年で耐久レースに参戦していたティーポ33/2の公道バージョンです。<br>
@@ -48,8 +94,11 @@
             後期型ではヘッドライトが2灯となり、位置が高くなりました。</p>
             <p class="brand">京商(1/100)</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/234">レッド</a><br>
+            <p class="brand">京商(1/64)</p>
+            <button class="car_item" onclick="item(7)">イエロー</button><br>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1373">2020 BOULEVARD(レッド)</a><br>
+            <button class="car_item" onclick="item(6)">2022 Exotic Envy(イエロー)</button><br>
             <h3 class="header_txt" id="car_name_montreal">モントリオール</h3>
             <p class="car_explain"></p>
             <p class="brand">京商</p>

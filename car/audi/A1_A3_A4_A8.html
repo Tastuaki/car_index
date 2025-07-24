@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+<script>
+var data = [[""],["majorette/audi/A5/1gen/glay/IMG_1964.JPG","",""],
+                ["kyosyo/audi/a5/1gen/red/IMG_E6489.JPG","アウディミニカーコレクションの1台です。",""],
+                ["kyosyo/audi/a6/3gen/avant/gray/IMG_E6495.JPG","アウディミニカーコレクションの1台です。",""],];
+function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
+
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -41,6 +64,22 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2694">ブラック</a><br>
             <p class="brand">ウェリー</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2901">レッド</a><br>
+            <h3 class="header_txt" id="car_name_a5">A5</h3>
+            <p class="car_explain">
+                <b>初代</b><br>
+                A4をベースにした4シータークーペです。後にオープンモデルのガブリオレとハッチバックのスポーツバックが追加されました。<br>
+            </p>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(1)">グレー</button><br>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(2)">レッド</button><br>
+            <h3 class="header_txt" id="car_name_a6">A6</h3>
+            <p class="car_explain">
+                <b>3代目</b><br>
+            </p>
+            <p>アバント</p>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(3)">グレー</button><br>
             <h3 class="header_txt" id="car_name_a8">A8</h3>
             <p class="car_explain">
                 <b>2代目</b><br>

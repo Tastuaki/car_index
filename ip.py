@@ -66,15 +66,16 @@ while q:
         if "item_description" in all[i]:
             # print("Explain")
             print(all[i+1].replace("      ","").replace("<br />","\n"))
-        if "data-photoeditor-image-url" in all[i]:
-            url = all[i][all[i].find("data-photoeditor-image-url")+len("data-photoeditor-image-url")+2:]
-            url = url[:url.find(" ")].rstrip('"')
-            print(url)
-            try:
-                urllib.request.urlretrieve(url,url[url.rfind("/"):])
-            except urllib.error.URLError:
-                print("image("+url+") Not Found")
-                exit()
+        if "css-6xdn3c\"" in all[i]:
+            print(all[i])
+            # url = all[i][all[i].find("data-photoeditor-image-url")+len("data-photoeditor-image-url")+2:]
+            # url = url[:url.find(" ")].rstrip('"')
+            # print(url)
+            # try:
+            #     urllib.request.urlretrieve(url,url[url.rfind("/"):])
+            # except urllib.error.URLError:
+            #     print("image("+url+") Not Found")
+            #     exit()
         if "amazon_block" in all[i]:
             break
     print("\n")
