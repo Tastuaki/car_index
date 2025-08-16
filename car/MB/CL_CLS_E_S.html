@@ -1,4 +1,31 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/MB/500E/2021 Factory Fresh/black/IMG_E1836.JPG","",""],
+                ["HW/MB/500E/2021 Factory Fresh/silver/IMG_E0632.JPG","","2313"],
+                ["coffee/MB/Eclass/3gen/wagon/IMG_E0687.JPG","小さい頃の買いなおしです","2265"],
+                ["matchbox/MB/CLA/shooting break/2021 MBX Highway/IMG_E6062.JPG","",""],
+                ["kyosyo/MB/AMG CLK DTM/secret/IMG_E7980.JPG","AMGミニカーコレクションの1台です。シークレットです。",""],
+                ["HW/MB/300 SEL 6.8 AMG/2022 Boulevard/IMG_E9117.JPEG","",""],
+                ["matchbox/MB/Sclass/1gen/450 SEL/new/2022 Moving Parts/IMG_E1529.JPG","",""],
+    ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -19,6 +46,13 @@
             <p>CL55 AMG</p>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1078">レッド</a><br>
+            <h3 class="header_txt" id="car_name_cla">CLAクラス</h3>
+            <p class="car_explain">
+                <b>2代目</b><br>
+            </p>
+            <p>シューティングブレーク</p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(4)">2021 MBX Highway(ブラック)</button><br>
             <h3 class="header_txt" id="car_name_cls">CLSクラス</h3>
             <p class="car_explain">
                 <b>初代</b><br>
@@ -26,6 +60,13 @@
             <p>CLS500</p>
             <p class="brand">マッチボックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/186">グリーン</a><br>
+            <h3 class="header_txt" id="car_name_clk_dtm">AMG CLK DTM</h3>
+            <p class="car_explain">
+                <b>2代目</b><br>
+            </p>
+            <p>プレゼンテーション</p>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(5)">シークレット</button><br>
             <h3 class="header_txt" id="car_name_e">Eクラス</h3>
             <p class="car_explain">
                 <b>初代(W124)</b><br>
@@ -38,7 +79,7 @@
             </p>
             <p>ワゴン</p>
             <p class="brand">コーヒーのおまけ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2265">ブラック</a><br>
+            <button class="car_item" onclick="item(3)">ブラック</button><br>
             <p class="car_explain">
                 <b>5代目(W213)</b><br>
             </p>
@@ -47,27 +88,36 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2183">レッド</a><br>
             <h3 class="header_txt" id="car_name_500e">500E</h3>
             <p class="brand">ホットウィール</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2313">2021 FACTORY FRESH(シルバー)</a><br>
+            <button class="car_item" onclick="item(1)">2021 FACTORY FRESH(ブラック)</button><br>
+            <button class="car_item" onclick="item(2)">2021 FACTORY FRESH(シルバー)</button><br>
             <h3 class="header_txt" id="car_name_s">Sクラス</h3>
             <p class="car_explain">
-                <b>初代(W214)</b><br>
+                <b>初代(W116)</b><br>
             </p>
-            <p class="brand">CURSOR MODEL</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2868">レッド</a><br>
+            <p>450SEL</p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(7)">2022 Moving Parts</button><br>
             <p class="car_explain">
                 <b>2代目(W126)</b><br>
             </p>
             <p>リムジン</p>
             <p class="brand">マジョレット</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2899">ペプシ</a><br>
-            <h3 class="header_txt" id="car_name_300_6.3_amg">300 SEL 6.3 AMG</h3>
             <p class="car_explain">
-                300 SEL 6.3をベースにしたレーシングカーです。<br>
+                <b>3代目(W140)</b><br>
+            </p>
+            <p>600SEL</p>
+            <p class="brand">CURSOR MODEL</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2868">レッド</a><br>
+            <h3 class="header_txt" id="car_name_300_6.8_amg">300 SEL 6.8 AMG</h3>
+            <p class="car_explain">
+                300 SEL 6.8をベースにしたレーシングカーです。<br>
                 6.8L V8DOHCエンジンを搭載し、最高出力は428psでした。<br>
                 1971年のヨーロッパツーリングカー選手権に参戦し、第5戦スパ・フランコルシャン24時間で総合2位になりました。当時の4ドアセダンとしては驚異の速さで、AMGの名を広めるきっかけにもなった1台です。<br>
             </p>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1761">2021 DEUTSCHLAND DESIGN(レッド)</a><br>
+            <button class="car_item" onclick="item(6)">2022 Boulevard(シルバー)</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　

@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/MB/300SL/racing/2022 Jay Leno's Garage/IMG_0558.JPEG","",""],
+                ["HW/MB/SLclass/4gen/500SL/2000 Mainline/blue_silver/IMG_9474.JPEG","",""],
+                ["kyosyo/MB/SLclass/5gen/SL55 AMG/white/IMG_E8009.JPG","メルセデスベンツ ミニカーコレクションの1台です。",""],
+                ["choroQHG/MB/SLK/1gen/silver/IMG_8836.JPEG","幌が開閉するギミックが付いています。",""],
+                ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -41,7 +65,14 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2067">2020 Premium Collector Set:Car Culture</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3382">2021 HW SPEED GRAPHICS</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3383">2023 RETRO RACERS</a><br>
+            <button class="car_item" onclick="item(1)">2022 Jay Leno's Garage</button><br>
             <h3 class="header_txt" id="car_name_sl">SLクラス</h3>
+            <p class="car_explain">
+                <b>4代目</b><br>
+            </p>
+            <p>500SL</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(2)">2000 Mainline</button><br>
             <p class="car_explain">
                 <b>5代目</b>(R230)<br>
                 角ばった先代までのイメージを覆し、曲線的なデザインに変わりました。<br>
@@ -52,6 +83,9 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1636">シリーズ4(ブラック)</a><br>
             <p class="brand">ノレブ</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2661">ブルー</a><br>
+            <p>SL55 AMG</p>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(3)">ホワイト</button><br>
             <p class="car_explain">
                 <b>6代目</b><br>
             </p>
@@ -75,6 +109,8 @@
             <p class="car_explain">
                 <b>初代</b><br>
             </p>
+            <p class="brand">チョロＱ</p>
+            <button class="car_item" onclick="item(4)">シルバー</button><br>
             <p>AMG</p>
             <p class="brand">オートアート(1/64)</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2081">シルバー</a><br>

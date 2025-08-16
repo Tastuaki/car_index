@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["maisto(bburago)/benz/g-class/orange_black/IMG_0033.JPEG","",""],
+                ["matchbox/MB/Gclass/2020 MBX Highway/IMG_E6058.JPG","",""],
+                ["matchbox/MB/Gclass/2022 black card/IMG_8311.JPG","チェイスみたいな枠だったのかただ単にカードの柄が違うだけなのか分かりません。",""],
+                ["matchbox/MB/Gclass/2023 Stars of Germany","2020年のベーシックで出たパープルと同じに見えますが、なにか違うのでしょうか…？","3172"],
+                ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -27,6 +51,8 @@
                 <b>前期型</b><br>
                 デザインは殆ど変わっていませんが、オーバーフェンダーとステップを装備するようになりました。<br>
             </p>
+            <p class="brand">マイスト</p>
+            <button class="car_item" onclick="item(1)">オレンジ/ブラック</button><br>
             <p class="brand">トミカ</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/149">通常品(シルバー)</a><br>
             <p>G500</p>
@@ -40,7 +66,9 @@
             <p>G550</p>
             <p class="brand">マッチボックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2244">2021 Collectors(イエロー)</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3172">2023 Stars of Germany(パープル)</a><br>
+            <button class="car_item" onclick="item(2)">2020 MBX Highway(パープル)</button><br>
+            <button class="car_item" onclick="item(3)">2022 black card(ブルー)</button><br>
+            <button class="car_item" onclick="item(4)">2023 Stars of Germany(パープル)</button><br>
             <p>ジェラシックパーク</p>
             <p class="brand">マッチボックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/691">ジュラシックワールド(2019)</a><br>

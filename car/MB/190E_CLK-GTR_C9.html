@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/MB/190E/2.5_16 Evo 2/2021 Mercedes-Benz Car Culture 2-Pack/IMG_E9294.JPG","",""],
+                ["MINICHAMPS/MAX MODELS/sauber C9/61/IMG_0809.JPEG","MAXモデルと表記がありますが、メーカーはミニチャンプスのようです。<br>OEMだったのか新しいブランドだったのかは不明ですが、この名義のモデルはザウバー C9しかないようです。",""],
+                ["kyosyo/MB/saubar C9/63/IMG_0473.JPEG","メルセデスベンツミニカーコレクションの1台です。",""],
+                ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -24,6 +47,7 @@
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/174">2017 MODERN CLASSICS(ブラック)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1159">2018 EURO SPEED(ブラック)</a><br>
+            <button class="car_item" onclick="item(1)">2021 Mercedes-Benz Car Culture 2-Pack(ブラック)</button><br>
             <p class="brand">メルセデス・ベンツ　Premium Collection</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1443">190 E 2.5-16 EVOLUTION Ⅱ</a><br>
             <p class="brand">MINI GT</p>
@@ -48,12 +72,16 @@
                 1989年にル・マン総合優勝を果たしました。<br>
                 タイヤは1987年のデビューからミシュランを使っていましたが、1988年のル・マンでバーストが原因でリタイヤ。これが原因でタイヤはグッドイヤーになりました。<br>
             </p>
-            <p>1998 ル・マン</p>
-            <p class="brand">チョロＱ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/130">#63</a><br>
             <p>1987 ドイツスーパースプリント</p>
             <p class="brand">ミニチャンプス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1093">Supercup 1987・J.L. Schlesser</a><br>
+            <p>1989 ル・マン</p>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(3)">#63</button><br>
+            <p class="brand">チョロＱ</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/130">#63</a><br>
+            <p class="brand">MAXモデル(ミニチャンプス)</p>
+            <button class="car_item" onclick="item(2)">#61</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　

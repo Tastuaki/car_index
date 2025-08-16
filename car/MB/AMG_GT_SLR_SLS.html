@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/MB/AMG GT/2022 European Car Culture Themed Multipack/IMG_E0359.JPG","",""],
+                ["kyosyo/MB/SLR mclaren/black/IMG_E6471.JPG","メルセデスベンツミニカーコレクションの1台です。",""],
+                ["matchbox/MB/AMG GT/4door/2021 MBX Showroom/IMG_E1423.JPG","",""],
+                ["motormax/1-43/SLR mclaren/silver/IMG_E1819.JPG","",""],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -17,15 +40,20 @@
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1229">2017 HW EXOTICS(レッド)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2303">2020 FAST&FURIOUS(シルバー)</a><br>
+            <button class="car_item" onclick="item(1)">2022 European Car Culture Themed Multipack</button><br>
             <p class="brand">コーヒーのおまけ(メルセデス・ベンツ　Premium Collection)</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1441">ブラック</a><br>
             <p class="brand">RMZ city</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1887">正規ライセンス!ダイキャストミニカーセブン(ブラック)</a><br>
+            <p>4ドア</p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(3)">2021 MBX Showroom(ブラック)</button><br>
             <p>ドイツ警察</p>
             <p class="brand">マジョレット</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/870">POLICE表記</a><br>
             <p>フランス国家警察</p>
-            <p class="brand"><a class="car_link" href="https://muuseo.com/Tastuaki33/items/1929">マジョレット</a></p>
+            <p class="brand">
+                <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1929">マジョレット</a></p>
             <p>GT R</p>
             <p class="brand">マジョレット</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1987">グリーン</a><br>
@@ -38,12 +66,16 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1963">2019 スパ24時間耐久 #00(本戦)</a><br>
             <h3 class="header_txt" id="car_name_SLR">SLR マクラーレン</h3>
             <p class="car_explain">メルセデス・ベンツとマクラーレンが共同で開発したスーパーカーです。<br>メルセデス・ベンツ 300SLRをモチーフに、フロントはF1のようなデザインになっています。スーパーカーらしくバタフライドアを採用しています。<br>ボディはカーボンモノコック、エンジンは専用開発のV6エンジン、エアブレーキ機能を搭載していました。<br>新車価格は約5800万円でした。<br></p>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(2)">ブラック</button><br>
             <p class="brand">ジク</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/442">グリーン</a><br>
             <p class="brand">マイスト</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1005">ブラック/レッド</a><br>
             <p class="brand">モータマックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2644">スーパーホイール(ブラック)</a><br>
+            <p class="brand">モータマックス(1/43)</p>
+            <button class="car_item" onclick="item(4)">シルバー</button><br>
             <h3 class="header_txt" id="car_name_SLS">SLS AMG</h3>
             <p class="car_explain">ダイムラーのメルセデスAMG部門から開発されたスーパーカーです。<br>300SLをモチーフにしているため、ガルウイングが搭載されています。<br></p>
             <p class="brand">コーヒーのおまけ(メルセデス・ベンツ　Premium Collection)</p>
