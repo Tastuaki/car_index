@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/dodge/chager/3gen/SRT8/2010 HW City Works/black/IMG_E6172.JPG","どこかのパトカー仕様です。ルーフに印刷されたパトランプが向こうらしいです。",""],
+                ["HW/dodge/chager/4gen/2015 SRT/2023 Mopar/IMG_E0266.JPG","",""],
+                ["HW/dodge/chager/4gen/2020 Hellcat/2021 Fast & Furious: Furious Fleet/IMG_E7947.JPG","",""],
+                ["maisto/dodge/charger/1969/blue/IMG_E7923.JPG","",""],
+                ["HW/dodge/chager/1999 R_T/2002 Trump Cars/IMG_2670.JPEG","",""],
+                ["HW/dodge/chager/1gen/1970 offroad/2022 Baja Blazers/IMG_E9404.JPG","映画「ワイルド・スピード」の劇中車です。",""],
+                ["HW/dodge/chager/3gen/drift/2021 HW Rescue/IMG_9536.JPG","",""],
+                ["HW/dodge/chager/stock/2021 HW Race Team/blue/IMG_E1746.JPG","",""],
+                ["M2/dodge/charger daytona/Auto-drivers/white/IMG_0036.JPEG","",""],
+                ["Racing champion/dodge/charger daytona/two-lane blacktop/IMG_E1346.JPG","",""],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -17,13 +46,41 @@
             </p>
             <p class="brand">FAST&amp;FURIOUS ダイキャストカー</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1143">グレー</a><br>
+            <p class="brand">マイスト</p>
+            <button class="car_item" onclick="item(4)">ブルー</button><br>
             <p>500</p>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/829">2019 ROD SQUAD(ブルー)</a><br>
+            <p>オフロード(ワイルド・スピード劇中車)</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(6)">2022 Baja Blazers</button><br>
             <p class="car_explain">
-            <b>3代目</b>
+                <b>3代目</b>
+            </p>
             <p class="brand">マイスト</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2488">パトカー</a><br>
+            <p>SRT8</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(1)">2010 HW City Works(ブラック)</button><br>
+            <p>ドリフト</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(7)">2021 HW Rescue</button><br>
+            <p class="car_explain">
+                <b>4代目</b>
+            </p>
+            <p>SRT</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(2)">2023 Mopar(グレー)</button><br>
+            <p>ヘルキャット</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(3)">2021 Fast & Furious: Furious Fleet(グレー)</button><br>
+            <h3 class="header_txt" id="car_name_charger_rt">チャージャー R/T</h3>
+            <p class="car_explain">
+                1999年に発表されたコンセプトカーです。<br>
+                1960年代のチャージャーを現代に甦らせたようなボディスタイルですが、ダッジの特徴的なフロントと4ドアクーペという当時になかったものと融合したデザインになっています。<br>
+            </p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(5)">2002 Trump Cars</button><br>
             <h3 class="header_txt" id="car_name_charger_stock">チャージャー ストックカー</h3>
             <p class="car_explain">
                 ベースモデルは2000年後半のダッジ チャージャーNASCARらしいですが、よく分かりません。ストックカーなのでライトやドアはありません。<br>
@@ -31,22 +88,26 @@
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/681">2019 HW RACE DAY(ブルー)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/858">2019 HW RACE DAY(レッド)</a><br>
+            <button class="car_item" onclick="item(8)">2021 HW Race Team(ブルー)</button><br>
             <h3 class="header_txt" id="car_name_charger_daytona">チャージャー デイトナ</h3>
             <p class="car_explain">
                 ダッジ チャージャー 500をベースにデイトナ500(今のNASCAR)参戦用モデルとして開発されました。<br>
                 空力のことを考えてフロントノーズを拡張、巨大なリアウイングを装着。<br>
                 初登場するなりすぐに優勝。次の年も圧勝しましたが、速すぎるが故に重たいハンデを背負うことになり2年で姿を消しました。<br>
             </p>
-            <p class="brand">ホットウィール</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/840">2019 HW FLAMES(ブルー)</a><br>
-            <p class="brand">M2マシーン</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1767">MOON EYES</a><br>
             <p class="brand">jada toys</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2176">レッド</a><br>
-            <p class="brand">ディアゴスティーニ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2693">アメリカンカーコレクション(レッド)</a><br>
+            <p class="brand">M2マシーン</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1767">MOON EYES</a><br>
+            <button class="car_item" onclick="item(9)">Auto-drivers(ホワイト)</button><br>
             <p class="brand">グリーンライト</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/959">PERRY RACEWAY(ペリーレースウェイ オフィシャルカー)</a><br>
+            <p class="brand">ディアゴスティーニ</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2693">アメリカンカーコレクション(レッド)</a><br>
+            <p class="brand">ホットウィール</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/840">2019 HW FLAMES(ブルー)</a><br>
+            <p class="brand">レーシングチャンピオン</p>
+            <button class="car_item" onclick="item(10)">two-lane blacktop(レッド)</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　
