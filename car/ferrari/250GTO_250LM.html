@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["kyosyo/Ferrari/250GT_SWB/red/IMG_7085.jpeg","",""],
+                ["LEGO/Ferrari/250GTO/blue/IMG_E0250.JPG","シェル石油のスタンドでハイオクを給油すると購入できたレゴです。",""],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -16,7 +37,7 @@
                 車名の意味通りホイールベースは200mm短くなりました。<br>
             </p>
             <p class="brand">京商</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2310">レッド</a><br>
+            <button class="car_item" onclick="item(1)">レッド</button><br>
             <h3 class="header_txt" id="car_name_250gto">250GTO</h3>
             <p class="car_explain">
                 GT選手権用に開発されたスポーツカーで、フェラーリ 250GT SWBの改良モデルです。<br>
@@ -30,6 +51,8 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1663">レッド</a><br>
             <p class="brand">マイスト</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2955">レッド</a><br>
+            <p class="brand">レゴ</p>
+            <button class="car_item" onclick="item(2)">ブルー</button><br>
             <p class="brand">PGM</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3254">レッド</a><br>
             <h3 class="header_txt" id="car_name_250lm">250LM</h3>

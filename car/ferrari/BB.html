@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["kyosyo/Ferrari/365GT4_BB/red/IMG_7126.jpeg","コーヒーを買ったときに抽選で当たるミニカーだったようです。<br>金型自体は京商CVSのものと同じと思われますが、裏板は専用のものになっています。","3238"],
+                ["kyosyo/Ferrari/512BB/IMG_7129.jpeg","フェラーリミニカーコレクションの1台です。","3237"],
+                ["kyosyo/Ferrari/512BB/LM/red/IMG_7136.jpeg","フェラーリミニカーコレクションⅧの1台です。 ","3236"],
+                ["kyosyo/Ferrari/512BB/LM/No.77/IMG_7137.jpeg","フェラーリレーシング ミニカーコレクション 2の1台です。 ","3235"],
+                ["brumm/512BB/LM/IMG_7144.jpeg","箱に書かれた英文を意訳すると<br>フェラーリ「ベルリネッタボクサー」はロードカー512BBをベースにしたモデルで通常販売はなかったが、1979年から1981年にかけて24台作製された。<br>これらのモデルはIMSA-GTXクラスのプロトタイプスポーツカーレースに数戦、プライベーターで参戦した。<br>1981年のル・マンで最高のパフォーマンスを見せ、ポッツィ・フランスチームのマシンが総合5位、クラス優勝を果たした。<br>ボディはほとんどグラスファイバー製で、ピニンファリーナの風洞で開発された。<br>となります。<br>この箱ではどこにも512BB LMの表記がないため512BBとは特に区別せずにフェラーリBB(ベルリネッタボクサー)と表記しているようです。<br>同様の文章がイタリア語でも表記されています。何故かイタリア語だけ文章が3つ存在するようですが、詳しいことは分かりません。","3234"],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -15,21 +39,21 @@
                 車名のBBはベルリネッタボクサーの略ですが、正確にはボクサーエンジンではなく180度のV型エンジンを搭載しています。<br>
             </p>
             <p class="brand">京商</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3238">レッド</a><br>
+            <button class="car_item" onclick="item(1)">レッド</button><br>
             <h3 class="header_txt" id="car_name_512bb">512BB</h3>
             <p class="car_explain">
                 365GT4BBの排気量を大きくしたスーパーカーです。<br>
                 排出ガス規制対策のため、最高出力は365GT4BBより下がったものの、低回転域で扱いやすい車になりました。<br>
             </p>
             <p class="brand">京商</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3237">レッド</a><br>
+            <button class="car_item" onclick="item(2)">レッド</button><br>
             <h3 class="header_txt" id="car_name_512bb_lm">512BB LM</h3>
             <p class="car_explain"></p>
             <p class="brand">京商</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3236">レッド</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3235">ブルー(#77)</a><br>
+            <button class="car_item" onclick="item(3)">レッド</button><br>
+            <button class="car_item" onclick="item(4)">ブルー(#77)</button><br>
             <p class="brand">ブルム</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3234">CH.POZZI-FRANCIA LE MANS 1981</a><br>
+            <button class="car_item" onclick="item(5)">CH.POZZI-FRANCIA LE MANS 1981</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　

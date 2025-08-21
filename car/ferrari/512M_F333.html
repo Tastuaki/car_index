@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/ferrari/330P4/2007 Ferrari 5-Pack/IMG_7101.jpeg","6台セットのバラシです。 ","3244"],
+                ["kyosyo/1:100/ferrari/330P4/yellow/IMG_E9530.JPG","コーヒーのおまけです。",""],
+                ["HW/ferrari/512M/2006_First_Edition/IMG_5676.jpeg","ゼッケンの番号が大きいモデルと小さいモデルが存在するようです。(これはゼッケンが小さいモデル) ","1057"],
+                ["HW/ferrari/333SP/2004_FERRARI_HEAT/IMG_7113.jpeg","","3241"],
+                ["HW/ferrari/333SP/2005_Ferrari/IMG_7531.jpeg","","3251"],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -14,14 +38,16 @@
                 フェラーリのプロトタイプレーシングカーで、330P3の改良モデルです。1967年の耐久レースで登場しました。<br>
             </p>
             <p class="brand">ホットウィール</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3244">2007 Ferrari 5-Pack(レッド)</a><br>
+            <button class="car_item" onclick="item(1)">2007 Ferrari 5-Pack(レッド)</button><br>
+            <p class="brand">京商(1/100)</p>
+            <button class="car_item" onclick="item(2)">イエロー</button><br>
             <h3 class="header_txt" id="car_name_512m">512M</h3>
             <p class="car_explain">
                 1970年からレースに参戦していたフェラーリ 512Sを改良したモデルです。<br>
                 1971年から参戦するもすぐにレギュレーション変更があった為、ワークス参戦は1年で終了し、以降はプライベーター参戦のみとなりました。<br>
             </p>
             <p class="brand">ホットウィール</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1057">2006 First Edition(レッド)</a><br>
+            <button class="car_item" onclick="item(3)">2006 First Edition(レッド)</button><br>
             <h3 class="header_txt" id="car_name_333">F333 SP</h3>
             <p class="car_explain">
                 フェラーリのレーシングカーです。WSCクラスが始まるのに合わせて開発されました。<br>
@@ -29,8 +55,8 @@
             </p>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/668">Passione(1/43)</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3241">2004 FERRARI HEAT(ホワイト)</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3251">2006 Mainline(ブラック)</a><br>
+            <button class="car_item" onclick="item(4)">2004 FERRARI HEAT(ホワイト)</button><br>
+            <button class="car_item" onclick="item(5)">2006 Mainline(ブラック)</button><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2844">2007 ALL STARS(レッド)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2867">2007 Ferrari Racer(レッド)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1959">2009 Ferrari Racer(16/レッド)</a><br>

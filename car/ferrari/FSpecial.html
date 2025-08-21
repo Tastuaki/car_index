@@ -1,4 +1,31 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["kyosyo/Ferrari/F40/red/IMG_7151.jpeg","フェラーリミニカーコレクションの1台です。 ","3233"],
+                ["kyosyo/Ferrari/F40/black/IMG_7154.jpeg","フェラーリミニカーコレクションの1台です。 ","3232"],
+                ["kyosyo/Ferrari/F40/Competizione/yellow/IMG_7160.jpeg","フェラーリミニカーコレクション IVの1台です。 ","3230"],
+                ["inno/Ferrari/F40/LBWK/2023_東京オートサロン/IMG_7173.jpeg","","3228"],
+                ["inno/Ferrari/F40/LBWK/Christmas_2023/IMG_7165.jpeg","","3229"],
+                ["TP/Ferrari/F50/yellow/IMG_0776.JPEG","","3252"],
+                ["kyosyo/Ferrari/F50/red/IMG_7157.jpeg","フェラーリミニカーコレクションの1台です。","3231"],
+                ["kyosyo/Ferrari/F50/new/silver/IMG_7188.jpeg","フェラーリミニカーコレクション Ⅶの1台です。","3227"],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -22,15 +49,15 @@
             <p class="brand">ぺ二―レーサー</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2130">オレンジ</a><br>
             <p class="brand">京商</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3233">レッド</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3232">ブラック</a><br>
+            <button class="car_item" onclick="item(1)">レッド</button><br>
+            <button class="car_item" onclick="item(2)">ブラック</button><br>
             <p>F40 コンペティツィオーネ</p>
             <p class="brand">京商</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3230">イエロー</a><br>
+            <button class="car_item" onclick="item(3)">イエロー</button><br>
             <p>LBWK</p>
             <p class="brand">イノ64</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3228">TOKYO AUTO SALON 2023(ホワイト)</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3229">Christmas Special Edition 2023(レッド)</a><br>
+            <button class="car_item" onclick="item(4)">TOKYO AUTO SALON 2023(ホワイト)</button><br>
+            <button class="car_item" onclick="item(5)">Christmas Special Edition 2023(レッド)</button><br>
             <h3 class="header_txt" id="car_name_f50">F50</h3>
             <p class="car_explain">
                 フェラーリ創業50周年を記念して作られたスーパーカーです。<br>
@@ -38,12 +65,12 @@
                 コンセプト通りの車になりました。<br>
             </p>
             <p class="brand">トミカプレミアム</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3252">トミカプレミアム発売記念仕様(イエロー)</a><br>
+            <button class="car_item" onclick="item(6)">トミカプレミアム発売記念仕様(イエロー)</button><br>
             <p class="brand">京商</p>
             旧金型
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3231">レッド</a><br>
+            <button class="car_item" onclick="item(7)">レッド</button><br>
             新金型
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3227">シルバー</a><br>
+            <button class="car_item" onclick="item(8)">シルバー</button><br>
             <h3 class="header_txt" id="car_name_sf90">SF90</h3>
             <p class="car_explain">
                 フェラーリ初のPHEVで、フェラーリのルーツとなったレーシングチーム、スクーデリア・フェラーリの設立90周年を記念したモデルです。<br>
