@@ -1,4 +1,26 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/ford/1933 Roadstar/2002 Trump Cars/IMG_0206.JPEG","",""],
+                ["HW/ford/bronco/R/2021 Hyper Haulers/IMG_E0627.JPG","",""],
+                ["greenlight/ford/bronco/1gen/Banell Jackson/green machine/IMG_0040.JPEG","",""],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -16,6 +38,7 @@
             </p>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1374">2001 RAT&amp;RODS(ブラック)</a><br>
+            <button class="car_item" onclick="item(1)">2002 Trump Cars</button><br>
             <h3 class="header_txt" id="car_name_intercepter_utility">インターセプター ユーティリティ</h3>
             <p class="car_explain">
                 <b>初代</b><br>
@@ -25,12 +48,22 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2209">2022(ニューヨーク市警察)</a><br>
             <h3 class="header_txt" id="car_name_bronco">ブロンコ</h3>
             <p class="car_explain">
+                <b>初代</b><br>
+            </p>
+            <p class="brand">グリーンライト</p>
+            <button class="car_item" onclick="item(3)">Banell Jackson(グリーンマシーン)</button><br>
+            <p class="car_explain">
                 <b>6代目</b><br>
                 24年ぶりに復活しました。<br>
                 初代ブランコを現代に蘇らせたようなデザインと悪路走破性を持つ、本格的なクロカン車となりました。ドアとハードトップは脱着可能になっています。<br>
             </p>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1653">2021 THEN AND NEW(ブルー)</a><br>
+            <h3 class="header_txt" id="car_name_broncoR">ブロンコR</h3>
+            <p class="car_explain">
+            </p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(2)">2021 Hyper Haulers</button><br>
             <h3 class="header_txt" id="car_name_expdition">エクスペディション</h3>
             <p class="car_explain">
                 <b>初代</b><br>

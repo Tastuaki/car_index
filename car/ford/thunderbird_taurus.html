@@ -1,4 +1,26 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/ford/thunderbird/stock/1997/2000 Mainline(japan)/IMG_E7848.JPG","このモデルは本来5台パックのうちの1台なのですが、何故か日本では単品として販売されたようです。<br>食玩として販売するのにセットは不都合があったのかもしれません。",""],
+                ["matchbox/ford/police intercepter/2022 MBX Highway/IMG_E8988.JPG","危険物処理班のパトカーのようです。",""],
+                ];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -31,6 +53,13 @@
             <p>1987～1988</p>
             <p class="brand">モーターマックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/923">#3</a><br>
+            <p class="car_explain">
+                9代目フォード サンダーバードがベースのNASCAR仕様車です。<br>
+                サンダーバードをベースにしたストックカーとしては最後のモデルです。<br>
+            </p>
+            <p>1997</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(1)">2000 Mainline(japan)(ダークレッド)</button><br>
             <h3 class="header_txt" id="car_name_taurus">トーラス ストックカー</h3>
             <p class="car_explain">
                 3代目及び4代目トーラスをベースにしたストックカーです。<br>
@@ -50,6 +79,7 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2249">2021(フリート)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1547">2021(消防指揮車)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2833">2023 MBX Highway(シルバー)</a><br>
+            <button class="car_item" onclick="item(2)">2022 MBX Highway(危険物処理班)</button><br>
         </div>
         <footer>
             <a class="footer_link" href="https://tastuaki.github.io/car_index/index.html">ホーム</a>　

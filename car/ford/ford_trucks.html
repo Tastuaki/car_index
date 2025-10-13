@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/ford/F150/10gen/2003 First Editions/IMG_2633.JPEG","トゥーンドになっています。",""],
+                ["matchbox/ford/F150/11gen/2019 Ford Truck Series/IMG_2629.JPEG","",""],
+                ["majorette/ford/F150/13gen/tune-ups/3/JUMPSTER/IMG_0523.JPEG","ジャンプ台なのかバイクの固定台なのか分かりませんが、なんか付いています。",""],
+                ["matchbox/ford/Superduty/3gen/F550/2017 MBX Explorers/IMG_2659.JPEG","Bureau of Land Management、略してBLM(アメリカの土地管理局)の車両のようです。",""],
+];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -37,6 +61,18 @@
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/845">2019 HW ART CARS(ホワイト)</a><br>
             <p class="car_explain">
+                <b>10代目</b><br>
+            </p>
+            <p>F150</p>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(1)">2003 First Editions</button><br>
+            <p class="car_explain">
+                <b>11代目</b><br>
+            </p>
+            <p>F150</p>
+            <p class="brand">マッチボックス</p>
+            <button class="car_item" onclick="item(2)">2019 Ford Truck Series</button><br>
+            <p class="car_explain">
                 <b>13代目</b><br>
                 6年ぶりにフルモデルチェンジしたフォードのフルサイズピックアップです。<br>
                 フロントは更にごついデザインになり、フォードとしては初のアルミニウム製ボディに切り替え、フレームにより多くの鉄を使うことで剛性を上げました。<br>
@@ -47,6 +83,8 @@
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1830">2019 DESERT RALLY(ブラック)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1891">2021 COLLECTOR EDITION(グリーン)</a><br>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(3)">Tune-ups Series3(JUMPSTER)</button><br>
             <h3 class="header_txt" id="car_name_cargo">カーゴ</h3>
             <p class="car_explain">
                 フォード Cシリーズの後継モデルとして販売された中型/大型キャブオーバー型トラックです。<br>
@@ -62,9 +100,10 @@
                 積載量違いのモデルとしてF-250、F-350、F-450、F-550があります。<br>
             </p>
             <p>F550<br>
-            消防車</p>
+            緊急車</p>
             <p class="brand">マッチボックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1882">2021 MBX Highway(レッド)</a><br>
+            <button class="car_item" onclick="item(4)">2017 MBX Explorers</button><br>
             <p>2017 FORD F-350 SUPER DUTY 4×4 XL CREW CAB MBX350 MATCHBOX POLICE</p>
             <p class="brand">マッチボックス</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1056">2009 City Action(グレー)</a><br>
