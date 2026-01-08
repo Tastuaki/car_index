@@ -1,4 +1,26 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["HW/nissan/skyline/10gen/LB-ER34 Super Silhouette/2022 MOUNTAIN DRIFTERS/IMG_9059.JPG","","3447"],
+                ["HW/nissan/skyline/10gen/LB-ER34 Super Silhouette/2024 Boulevard/IMG_0228.JPEG","",""],
+                ["CM model/nissan/LB-ER34 Super Silhouette/blue/IMG_0234.JPEG","",""],];
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -74,7 +96,9 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3446">ホワイト</a><br>
             <p>LB-ER34 Super Silhouette</p>
             <p class="brand">ホットウィール</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3447">2022 MOUNTAIN DRIFTERS(レッド/ブラック)</a><br>
+            <button class="car_item" onclick="item(1)">2022 MOUNTAIN DRIFTERS(レッド/ブラック)</button><br>
+            <button class="car_item" onclick="item(2)">2024 Boulevard(ホワイト/ブラック)</button><br>
+            <button class="car_item" onclick="item(3)">ブルー</button><br>
             <p>アルティアコンプリート</p>
             <p class="brand">かっとビークル</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2685">シルバー</a><br>
