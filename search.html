@@ -12,6 +12,7 @@
                 <a href="https://www.ebay.com/sch/i.html?_nkw=" id="ebay">ebay</a>
                 <a href="https://www.suruga-ya.jp/kaitori/search_buy?search_word=" id="surugab">駿河屋(買取)</a>
                 <a href="https://www.suruga-ya.jp/search?search_word=" id="surugas">駿河屋(販売)</a>
+                <a href="https://shop.lashinbang.com/kaitori/list?keyword=" id="rashin">らしんばん(販売)</a>
                 <a href="https://jp.mercari.com/search?keyword=" id="mercari">メルカリ</a>
                 <a href="https://auctions.yahoo.co.jp/search/search?p=" id="yahoo">ヤフオク</a>
                 <a href="https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=t" id="yahooc">ヤフオク(落札済)</a><br><br>
@@ -63,6 +64,7 @@
             let eba = document.getElementById('ebay')
             let sub = document.getElementById('surugab')
             let sus = document.getElementById('surugas')
+            let rab = document.getElementById('rashin')
             let mer = document.getElementById('mercari')
             let yah = document.getElementById('yahoo')
             let yac = document.getElementById('yahooc')
@@ -84,6 +86,7 @@
                 eba.setAttribute('href',"https://www.ebay.com/sch/i.html?_nkw="+ser.value)
                 sub.setAttribute('href',"https://www.suruga-ya.jp/kaitori/search_buy?search_word="+ser.value)
                 sus.setAttribute('href',"https://www.suruga-ya.jp/search?search_word="+ser.value)
+                rab.setAttribute('href',"https://shop.lashinbang.com/kaitori/list?keyword="+ser.value)
                 mer.setAttribute('href',"https://jp.mercari.com/search?keyword="+ser.value)
                 yah.setAttribute('href',"https://auctions.yahoo.co.jp/search/search?p="+ser.value)
                 yac.setAttribute('href',"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p="+ser.value)
