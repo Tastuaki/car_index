@@ -1,4 +1,75 @@
 <!DOCTYPE html>
+<script>
+    var data = [[""],["choroQHG/nissan/skyline_gt-r/3gen/calsonic/IMG_0255.JPEG","",""],
+                ["choroQHG/nissan/skyline_gt-r/4gen/purple/IMG_0260.JPEG","",""],
+                ["tomica/nissan/skyline_gt-r/3gen/頭文字D/IMG_0033.JPG","",""],
+                ["tomica/nissan/skyline_gt-r/3gen/police car/神奈川県警/IMG_0038.JPEG","",""],
+                ["HW/nissan/skyline_gt-r/1gen/2018 Fast & Furious/IMG_0060.JPEG","",""],
+                ["HW/nissan/skyline_gt-r/3gen/2024 Boulevard/IMG_0065.JPEG","",""],
+                ["HW/nissan/skyline_gt-r/3gen/2024 Fast & Furious/IMG_0023.JPG","",""],
+                ["kyosyo/nissan/skyline_gt-r/5gen/JGTC/CASTROL PITWORK GT-R 2002/IMG_0239.JPEG","",""],
+                ["kyosyo/nissan/skyline_gt-r/5gen/JGTC/CALSONIC SKYLINE 2002/IMG_0245.JPEG","",""],
+                ["choroQHG/nissan/skyline_gt-r/5gen/white/IMG_0250.JPEG","",""],
+                ["choroQ/RG/nissan/skyline_gt-r/5gen/blue/IMG_3976.JPEG","",""],
+                ["choroQHG/nissan/skyline_gt-r/5gen/black/IMG_0119.JPEG","",""],
+                ["HW/nissan/skyline_gt-r/5gen/2023 Fast & Furious/silver/IMG_0103.JPEG","",""],
+                ["HW/nissan/skyline_gt-r/5gen/2024 Gran Turismo 7/IMG_0105.JPEG","",""],
+                ["HW/nissan/skyline_gt-r/5gen/2023 Fast & Furious/orange/IMG_1393.JPG","",""],
+                ["HW/nissan/skyline_gt-r/5gen/2022 Fast & Furious/IMG_9506.JPEG","",""],
+                ["majorette/nissan/skyline_gt-r/5gen/blue/IMG_0083.JPEG","",""],
+                ["majorette/nissan/skyline_gt-r/5gen/purple/IMG_0089.JPEG","",""],
+                ["welly/nissan/skyline_gt-r/5gen/blue/IMG_0095.JPEG","",""],
+                ["welly/3inch/nissan/skyline_gt-r/5gen/white/IMG_0106.JPEG","",""],
+                ["HW/monster trucks/nissan/skyline_gt-r/5gen/2023 monster trucks/IMG_0099.JPEG","",""],
+                ["coffee/nissan/skyline_GT-R/5gen/72/blue/IMG_0112.JPEG","",""],
+                ["greenlight/nissan/SKYLINE_GT-R/5gen/For PAUL/IMG_0126.JPEG","",""],
+                ["greenlight/nissan/SKYLINE_GT-R/5gen/SHELL OIL SPECIAL EDITION/Series1/IMG_0130.JPEG","",""],
+                ["kyosyo/nissan/skyline_gt-r/5gen/red/759D0277-A771-4ED3-9C01-AF1B2AB662C4.jpeg","",""],
+                ["tomica/nissan/skyline_gt-r/5gen/アミューズメント/IMG_0155.JPEG","",""],
+                ["tomica/nissan/skyline_gt-r/5gen/トミカピコ/IMG_0160.JPEG","",""],
+                ["tomica/nissan/skyline_gt-r/5gen/TMS_2001/IMG_0164.JPEG","",""],
+                ["tomica/nissan/skyline_gt-r/5gen/トミカ缶/IMG_0170.JPEG","",""],
+                ["MINI GT/nissan/skyline_gt-r/5gen/black/IMG_0177.JPEG","",""],
+                ["MINI GT/nissan/skyline_gt-r/5gen/white/IMG_1385.JPEG","",""],
+                ["MINI GT/nissan/skyline_gt-r/5gen/2022 christmas/IMG_1380.JPEG","",""],
+                ["MINI GT/Tommykaira/R-z/Red/IMG_0212.JPEG","",""],
+                ["inno/nissan/skyline_GT-R/5gen/VspecII Nur/ミレニアムジェイド/IMG_0181.JPEG","",""],
+                ["stance/nissan/skyline_GT-R/5gen/chameleon/IMG_0186.JPEG","",""],
+                ["inno/nissan/nismo/R-tune/シルバーメッキ/IMG_0199.JPEG","",""],
+                ["tomica_etc/happy_set/nissan/skyline_gt-r/5gen/police_car/IMG_0428.JPEG","",""],                
+                ["TP/nissan/skyline_gt-r/5gen/株主優待(2016)/IMG_1193.JPEG","",""],
+                ["kyosyo/nissan/skyline_gt-r/5gen/CVS19/blue/IMG_1233.JPEG","",""],
+                ["kyosyo/nissan/skyline_gt-r/5gen/beads collection/blue/IMG_E0417.JPG","",""],
+                ["TPum/ワイルドスピード BNR34/silver/IMG_E1852.JPG","",""],
+                ["coffee/nissan/skyline_GT-R/5gen/ベストカーミュージアム スカイライン＆フェアレディ/IMG_E9379.JPG","",""],                
+                ["kyosyo/nissan/skyline_gt-r/4gen/日産限定/silver/IMG_0012.JPG","",""],
+                ["kyosyo/nissan/skyline_gt-r/4gen/autech 4 door/CVS/blue/IMG_0022.JPG","",""],
+                ["inno/nissan/skyline_GT-R/4gen/safety car/IMG_0006.JPG","",""],
+                ["TLV/nissan/skyline_GT-R/4gen/ ニュルブクリンク タイムアタック車/IMG_0001.JPG","",""],
+                ["tomica/nissan/skyline_gt-r/3gen/トミカ組み立て工場/gray/IMG_0024.JPG","",""],                
+                ["tomica/nissan/skyline_gt-r/3gen/イベントモデル/silver/IMG_0029.JPG","",""],                
+                ["MINI GT/nissan/skyline_gt-r/3gen/top secret/gold chrome/IMG_0074.JPEG","",""],                
+                ["coffee/nissan/skyline_GT-R/3gen/gr.a/calsonic/IMG_E7919.JPG","",""],     
+                ["diapet/excellent/nissan/skyline_gt-r/3gen/IMG_E8191.JPG","",""],     
+            ]; //50
+    function item(n){
+        let w = document.body.offsetWidth * 0.8;
+        let h = document.body.offsetHeight * 0.8;
+        let urls = "";
+        let item_w = window.open('https://tastuaki.github.io/car_index/item.html',"詳細",'status=no,location=no,toolbar=no,menubar=no,width:'+w+'height:'+h);
+        item_w.focus();
+        item_w.onload = function() {
+            item_w.document.getElementById("item_img").src='https://raw.githubusercontent.com/Tastuaki/car_pic/refs/heads/main/'+data[n][0];
+            item_w.document.getElementById("item_img").width=w * 0.8;
+            item_w.document.getElementById("car_explain").innerHTML='<p class="car_explain">'+data[n][1]+'</p>';
+            urls = '<a class="car_link" href="https://github.com/Tastuaki/car_pic/blob/main/'+data[n][0].slice(0,data[n][0].lastIndexOf("/"))+'">画像の保存場所</a>';
+            if(data[n][2] != ""){
+                urls += '　<a class="car_link" href="https://muuseo.com/Tastuaki33/items/'+data[n][2]+'">MUUSEO</a>';
+            }
+            item_w.document.getElementById("links").innerHTML=urls;
+        };
+    }
+</script>
 <html lang="ja" id="main_html">
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Tastuaki/car_index/main/favicon.ico" type="image/vnd.microsoft.icon">
@@ -17,6 +88,8 @@
             <p>前期(PGC10型)</p>
             <p class="brand">トミカ</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/87">栄光のGT-Rセット(シルバー)</a><br>
+            <p class="brand">ホットウィール</p>
+            <button class="car_item" onclick="item(5)">2018 Fast & Furious(ブラック)</button><br>
             <p>後期(KPGC10型)</p>
             <p class="brand">M2 マシーン</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1015">ムーンアイズ(ブラック)</a><br>
@@ -28,36 +101,58 @@
                 ケンメリから16年ぶりに復活したGT-Rはエンジンはツインターボ、駆動方式は4WD、足回りは最新のシステムと速さを求めて全てが変わっていました。<br>
                 ただし、出力規制で280PSまで抑えられた上に海外輸出がなかったため、日本車初の300PSとはなりませんでした。<br>
             </p>
+            <p class="brand">チョロＱ</p>
+            <button class="car_item" onclick="item(1)">CALSONIC SKYLINE</button><br>
             <p class="brand">トミカ</p>
             金型改修前<br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2326">グレー</a><br>
             金型改修後<br>
+            <button class="car_item" onclick="item(46)">トミカ組み立て工場(グレー)</button><br>
+            <button class="car_item" onclick="item(47)">イベントモデル(シルバー)</button><br>
+            <button class="car_item" onclick="item(3)">頭文字D</button><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/88">栄光のGT-Rセット(ガンメタ)</a><br>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/494">2019 FAST&amp;FURIOUS(ガンメタ)</a><br>
             <!-- <a class="car_link" href="https://muuseo.com/Tastuaki33/items/643">2024 Boulevard</a><br> -->
+            <p class="brand">ダイヤペット</p>
+            <button class="car_item" onclick="item(50)">エクセレントダイヤペット</button><br>
             <p class="brand">トミカプレミアム</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1303">通常品(ガンメタ)</a><br>
             <p class="brand">ライトキーホルダー</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2940">ガンメタリック</a><br>
             <p class="brand">頭文字D プルバックスピンカー</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1464">ガンメタリック</a><br>
+            <p>トップシークレット</p>
+            <p class="brand">MINI GT</p>
+            <button class="car_item" onclick="item(48)">ゴールドクローム</button><br>
+            <p>神奈川県警</p>
+            <p class="brand">トミカ</p>
+            <button class="car_item" onclick="item(4)">神奈川県警</button><br>
             <p class="car_explain">
                 <b>4代目</b>(R33型)<br>
                 9代目日産 スカイラインをベースに改造されたモデルです。<br>
                 R32をキープコンセプトにしつつ、改良を重ねましたが、酷評されることも多い車です。全体的にワイドボディ化されました。<br>
             </p>
-            <p class="brand">トミカプレミアム</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/134">通常品(ホワイト)</a><br>
-            <p class="brand">チョロＱ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/436">グレー</a><br>
             <p class="brand">京商</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2738">パープル</a><br>
+            <button class="car_item" onclick="item(42)">日産限定(シルバー)</button><br>
+            <p class="brand">トミカプレミアム</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/134">通常品(ホワイト)</a><br>
+            <p class="brand">トミカリミテッドヴィンテージNEO</p>
+            <button class="car_item" onclick="item(45)">ニュルブクリンク タイムアタック車</button><br>
+            <p class="brand">チョロＱ</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/436">グレー</a><br>
+            <button class="car_item" onclick="item(2)">パープル</button><br>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/680">2019 FAST&amp;FURIOUS(イエロー)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1055">2019 BOULEVARD(シルバー/ニスモカラー)</a><br>
             <p class="brand">日本名車倶楽部</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2393">1-D ソニックシルバー</a><br>
+            <p>オーテック4ドア</p>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(43)">日産 スカイライン・GT-R ミニカーコレクション(ブルー)</button><br>
+            <p>1997 ル・マン24時間レース セーフティカー</p>
+            <button class="car_item" onclick="item(44)">inno 64</button><br>
             <p>埼玉県警</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/304">コーヒーのおまけ(ローソン限定 警察車両コレクション)</a><br>
             <p class="car_explain">
@@ -65,9 +160,9 @@
                 スカイラインGT-RとしてもRB26エンジンを搭載した第二世代GT-Rとしても最終型となったBNR34です。10代目スカイラインをベースにチューンしたモデルで、GT-Rとしては5代目になります。BCNR33よりサイズダウンしているのにも関わらず迫力が増しました。新車価格は約500万です。<br>
                 2002年の排ガス規制の関係で生産終了となりました。<br>
             </p>
-            <p class="brand">チョロＱ</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/435">ブルー</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/838">Car Sensor特注(レッド)</a><br>
+            <p class="brand">京商</p>
+            <button class="car_item" onclick="item(39)">ブルー</button><br>
+            <button class="car_item" onclick="item(25)">プリンス＆スカイラインミュージアム(レッド)</button><br>
             <p class="brand">グリーンライト</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/237">ホワイト</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/238">グリーン</a><br>
@@ -75,6 +170,23 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/875">ブリジストン</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1182">ブルー</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1268">ガルフカラー</a><br>
+            <button class="car_item" onclick="item(23)">For PAUL</button><br>
+            <button class="car_item" onclick="item(24)">SHELL OIL SPECIAL EDITION Series 1</button><br>
+            <p class="brand">スタンスハンター</p>
+            <button class="car_item" onclick="item(34)">カメレオン</button><br>
+            <p class="brand">トミカ</p>
+            <button class="car_item" onclick="item(26)">アミューズメントトミカ(シルバー)</button><br>
+            <button class="car_item" onclick="item(27)">トミカピコ(レッド)</button><br>
+            <button class="car_item" onclick="item(28)">東京モーターショー2001(レッド/ブラック)</button><br>
+            <p class="brand">トミカプレミアム unlimited</p>
+            <button class="car_item" onclick="item(40)">ワイルドスピード(シルバー)</button><br>
+            <p class="brand">チョロＱ</p>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/435">ブルー</a><br>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/838">Car Sensor特注(レッド)</a><br>
+            <button class="car_item" onclick="item(10)">チョロＱ EXPO 2003(ホワイト)</button><br>
+            <button class="car_item" onclick="item(12)">ブラック</button><br>
+            <p class="brand">チョロＱ リアルギミック</p>
+            <button class="car_item" onclick="item(11)">ブルー</button><br>
             <p class="brand">Jada toys</p>
             1/32<br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/277">ブラック</a><br>
@@ -86,6 +198,13 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/281">ブルー(エラー品)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/282">レッド</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1840">ゴールド</a><br>
+            <p class="brand">マジョレット</p>
+            <button class="car_item" onclick="item(17)">ブルー</button><br>
+            <button class="car_item" onclick="item(18)">パープル</button><br>
+            <p class="brand">MINI GT</p>
+            <button class="car_item" onclick="item(29)">ブラック</button><br>
+            <button class="car_item" onclick="item(30)">ホワイト</button><br>
+            <button class="car_item" onclick="item(31)">2022クリスマスモデル</button><br>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/465">2019 NISSAN(グリーン)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/495">2019 FAST&amp;FURIOUS(シルバー/ブルー)</a><br>
@@ -93,16 +212,28 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/906">2019 TEAM TRANSPORT(シルバー/ニスモカラー)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2240">2021 FAST&amp;FURIOUS(ブルー)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2352">2020 FAST&amp;FURIOUS 5-packs(シルバー/ブルー)</a><br>
+            <button class="car_item" onclick="item(16)">2022 Fast & Furious</button><br>
+            <button class="car_item" onclick="item(13)">2023 Fast & Furious(シルバー)</button><br>
+            <button class="car_item" onclick="item(15)">2023 Fast & Furious(オレンジ)</button><br>
+            <button class="car_item" onclick="item(21)">2023 monster trucks</button><br>
+            <button class="car_item" onclick="item(14)">2024 Gran Turismo 7</button><br>
             <p class="brand">エムテック</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2494">イエロー</a><br>
             <p class="brand">ウェリー</p>
+            1/64<br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2729">ブルー</a><br>
+            <button class="car_item" onclick="item(19)">ブルー</button><br>
+            1/32<br>
+            <button class="car_item" onclick="item(20)">ホワイト</button><br>
+            <p class="brand">コーヒーのおまけ</p>
+            <button class="car_item" onclick="item(41)">ベストカーミュージアム スカイライン＆フェアレディ</button><br>
+            <button class="car_item" onclick="item(22)">GT-R歴代名車コレクション(ブルー)</button><br>
             <p>M-spec</p>
             <p class="brand">グリーンライト</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/235">ゴールド(エラー品)</a><br>
             <p>R-tune</p>
             <p class="brand">イノ64</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2893">銀メッキ</a><br>
+            <button class="car_item" onclick="item(35)">HOBBY EXPO CHINA 2023 EVENT EDITION(シルバーメッキ)</button><br>
             <p>V-spec</p>
             <p class="brand">エムテック</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2493">ベイサイドブルー</a><br>
@@ -114,8 +245,8 @@
             <p class="brand">1/64SCALE 日産GT-R ANNIVERSARY</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/720">2-C.ブルー</a><br>
             <p class="brand">京商</p>
+            <button class="car_item" onclick="item(38)">ブルー</button><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/723">ビーズコレクション(ホワイト)</a><br>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/3045">プリンス＆スカイラインミュージアム(レッド)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/903">GT-R 50th Anniversary(ブルー)</a><br>
             <p class="brand">京商(1/100)</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1833">ブルー</a><br>
@@ -124,13 +255,19 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/863">通常品(ブルー)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/104">タカラトミーモールオリジナル(ミレニアムジェイド)</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/863">懸賞品(レッド)</a><br>
+            <button class="car_item" onclick="item(37)">株主優待(2016)</button><br>
+            <p class="brand">イノ64</p>
+            <button class="car_item" onclick="item(33)">ミレニアムジェイド</button><br>
             <p>パトカー</p>
-            <p><p class="brand">ポケットビークル</p>
-            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1613">パトカー</a><br>
+            <button class="car_item" onclick="item(36)">ハッピーセット</button><br>
+            <a class="car_link" href="https://muuseo.com/Tastuaki33/items/1613">ポケットビークル</a><br>
             <p>埼玉県警</p>
             <p class="brand">グリーンライト×ターマック</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/932">GT-R警視庁</a><br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/933">GT-R警視庁(ウイング反転エラー品)</a><br>
+            <p>トミーカイラ</p>
+            <p class="brand">MINI GT</p>
+            <button class="car_item" onclick="item(32)">レッド</button><br>
             <h3 class="header_txt" id="car_name_gt-r_gr.a">GT-R Gr.A</h3>
             <p class="car_explain">
                 全日本ツーリングカー選手権(Gr.A)で登場した無敗のR32です。<br>
@@ -142,6 +279,8 @@
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2211">カルソニック スカイライン</a><br>
             <p class="brand">京商</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2975">CALSONIC SKYLINE 1990</a><br>
+            <p class="brand">コーヒーのおまけ</p>
+            <button class="car_item" onclick="item(49)">NISSAN Racing Split Rの系譜 Collection</button><br>
             <p>#87 HKS</p>
             <p class="brand">ホットウィール</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/643">2019 OPEN TRACK</a><br>
@@ -166,9 +305,13 @@
             </p>
             <p class="brand">チョロＱ</p>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/862">CALSONIC SKYLINE R34 GT-R</a><br>
+            2002<br>
+            <button class="car_item" onclick="item(9)">京商</button><br>
             2003<br>
             <a class="car_link" href="https://muuseo.com/Tastuaki33/items/2698">京商</a><br>
-            <h3 class="header_txt" id="car_name_falken_skyline">ファルケンスカイラインGT-R</h3>
+            <h3 class="header_txt" id="car_name_castrol_R34">カストロールスカイラインGT-R(R34)</h3>
+            2002<br>
+            <button class="car_item" onclick="item(8)">京商</button><br>            <h3 class="header_txt" id="car_name_falken_skyline">ファルケンスカイラインGT-R</h3>
             <p class="car_explain">
                 2001年から2005年までニュルブルクリンク24時間耐久レースに参戦していました。最後となった2005年は当時の日本車最高記録となる5位入賞を果たしています。<br>
             </p>
